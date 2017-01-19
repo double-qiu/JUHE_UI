@@ -1,0 +1,2727 @@
+<!DOCTYPE html>
+<!-- saved from url=(0023)./# -->
+<html lang="en" class="backgroundsize bgpositionshorthand bgpositionxy bgrepeatround bgrepeatspace bgsizecover borderradius cssanimations csscalc csstransforms supports csstransforms3d csstransitions no-flexboxtweener fontface inlinesvg localstorage multiplebgs preserve3d sessionstorage smil svgclippaths svgfilters svgforeignobject canvas todataurljpeg todataurlpng todataurlwebp no-touch"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <link rel="shortcut icon" type="image/png" href="./index/img/favicon.png">
+   	<title>云收藏 | 让收藏更简单</title>
+   	<link rel="stylesheet" href="./index/vendor/fontawesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./index/vendor/simple-line-icons/css/simple-line-icons.css">
+    <link rel="stylesheet" href="./index/vendor/animate.css/animate.min.css">
+    <link rel="stylesheet" href="./index/vendor/toastr/toastr.min.css">
+  	<link rel="stylesheet" href="./index/media/css/bootstrap.css">
+    <link rel="stylesheet" href="./index/media/css/app.css">
+    <link rel="stylesheet" href="./index/media/css/theme-i.css">
+  </head>
+  <body class="layout-fixed">
+    <div class="wrapper" role="navigation">
+		<header class="topnavbar-wrapper">
+      <nav class="navbar topnavbar" role="navigation">
+      <div class="nav-wrapper">
+            <ul class="nav navbar-nav navbar-right">
+               <li>
+                  <a title="搜索" data-search-open="" href="#">
+                     <em class="icon-magnifier"></em>
+                  </a>
+               </li>
+               <li class="dropdown dropdown-list">
+                  <a title="消息通知" data-toggle="dropdown" href="./index/home/home.html" aria-expanded="false">
+                     <em class="icon-bell"></em>
+                     <div class="label label-danger">1</div>
+                  </a>
+                  <ul class="dropdown-menu animated flipInX">
+                     <li>
+                        <div class="list-group">
+                           <a class="list-group-item" href="javascript:void(0);" onclick="atMeOnclick()">
+                              <div class="media-box">
+                                 <div class="pull-left">
+                                    <em class="fa fa-at fa-2x text-info"></em>
+                                 </div>
+                                 <div class="media-box-body clearfix">
+                                    <p class="m0">@我的</p>
+                                    <p class="m0 text-muted">
+                                       <small id="atMeNewNotice">0 条新消息</small>
+                                    </p>
+                                 </div>
+                              </div>
+                           </a>
+                            <a class="list-group-item" href="javascript:void(0);" onclick="commentMeOnclick()">
+                              <div class="media-box">
+                                 <div class="pull-left">
+                                    <em class="fa fa-comment fa-2x text-warning"></em>
+                                 </div>
+                                 <div class="media-box-body clearfix">
+                                    <p class="m0">评论我的</p>
+                                    <p class="m0 text-muted">
+                                       <small id="commentMeNewNotice">0 条新评论</small>
+                                    </p>
+                                 </div>
+                              </div>
+                           </a>
+                            <a class="list-group-item" href="javascript:void(0);" onclick="praiseMeOnclick()">
+                              <div class="media-box">
+                                 <div class="pull-left">
+                                    <em class="fa fa-thumbs-up fa-2x text-success"></em>
+                                 </div>
+                                 <div class="media-box-body clearfix">
+                                    <p class="m0">赞我的</p>
+                                    <p class="m0 text-muted">
+                                       <small id="praiseMeNewNotice">1 个新的赞</small>
+                                       <input id="newPraiseMeCounts" type="hidden" value="1">
+                                    </p>
+                                 </div>
+                              </div>
+                           </a>                    
+                        </div>
+                     </li>
+                  </ul>
+               </li>
+            
+               <li>
+                  <a title="回收站" href="javascript:void(0);" onclick="locationUrl(&#39;/standard/garbage/0&#39;,&#39;garbage&#39;);">
+                     <em class="icon-trash"></em>
+                  </a>
+               </li>
+               <li>
+                  <a title="设置" data-no-persist="true" data-toggle-state="offsidebar-open" href="javascript:void(0);">
+                     <em class="icon-settings"></em>
+                  </a>
+               </li>
+            </ul>
+         </div>
+         <form class="navbar-form" role="search">
+            <div class="form-group has-feedback">
+               <input id="searchKey" type="text" class="form-control" placeholder="输入并且按回车确定...">
+               <div class="fa fa-times form-control-feedback" data-search-dismiss=""></div>
+            </div>
+            <button class="hidden btn btn-default" type="button">提交</button>
+         </form>
+      </nav>
+     <script type="text/javascript">
+        document.onkeydown = function(e){ 
+            if(!e) e = window.event;//火狐中是 window.event 
+            if((e.keyCode || e.which) == 13){ 
+				window.event ? window.event.returnValue = false : e.preventDefault();
+	            var key=document.getElementById("searchKey").value;
+	   	    	 if(key!=''){
+	   	    	    locationUrl('/search/'+key,"");
+	   	    	 }
+            } 
+        } 
+    </script>
+   </header>
+	
+		<aside class="offsidebar">
+	   <h3 class="text-center">设置</h3>
+	   <div class="p-lg text-center">
+	      <a class="btn btn-default btn-block" data-target="#modal-defaultFav" data-toggle="modal" href="javascript:void(0);" id="defaultFavorites"><strong>默认收藏夹(后端技术)</strong></a>
+	   </div>
+	   <div class="p-lg text-center">
+	      <a class="btn btn-default btn-block" href="javascript:void(0);" id="defaultCollectType" onclick="changeConfig(&#39;defaultCollectType&#39;)"><strong>默认公开收藏（点击切换）</strong></a>
+	   </div>
+	   <input type="hidden" id="configId" value="1">
+	   <div class="p-lg text-center">
+	      <a class="btn btn-default btn-block" href="javascript:void(0);" id="defaultModel" onclick="changeConfig(&#39;defaultModel&#39;)"><strong>收藏时显示简单模式</strong></a>
+	   </div>
+	   <div class="p-lg text-center">
+	      <a class="btn btn-default btn-block" data-target="#modal-changeDescription" data-toggle="modal" href="javascript:void(0);">
+	         <strong>修改个人简介</strong>
+	      </a>
+	   </div>
+	   <div class="p-lg text-center">
+	      <a class="btn btn-default btn-block" onclick="locationUrl(&#39;/uploadHeadPortrait&#39;,&#39;uploadHeadPortrait&#39;)">
+	         <strong>修改头像</strong>
+	      </a>
+	   </div>
+	   <div class="p-lg text-center">
+	      <a class="btn btn-default btn-block" data-target="#modal-ChangeNickname" data-toggle="modal" href="./index/home/home.html">
+	         <strong>修改昵称</strong>
+	      </a>
+	   </div>
+	   <div class="p-lg text-center">
+	      <a class="btn btn-default btn-block" data-target="#modal-ChangePass" data-toggle="modal" href="./index/home/home.html">
+	         <strong>修改密码</strong>
+	      </a>
+	   </div>
+	   <div class="p-lg text-center">
+	      <a class="btn btn-danger btn-block" href="./logout">
+	         <strong>注销</strong>
+	      </a>
+	   </div>
+	  <script type="text/javascript">
+		function changeConfig(type){
+			 $.ajax({
+				async: false,
+				type: 'POST',
+				dataType: 'json',
+				data:{'id':$("#configId").val(),'type':type,'defaultFavorites':$("#layoutFavoritesName").val()},
+				url: '/user/updateConfig',
+				error : function(XMLHttpRequest, textStatus, errorThrown) {
+					console.log(XMLHttpRequest);
+					console.log(textStatus);
+					console.log(errorThrown);
+				},
+				success: function(response){
+					loadConfig();
+					$("#updateFavoritestBtn").attr("aria-hidden","true");
+					$("#updateFavoritestBtn").attr("data-dismiss","modal");
+				}
+			}); 
+		}
+	</script>
+	</aside>
+	
+  
+    
+         <div class="content-wrapper" style="margin-top: 50px;">
+            <div class="unwrap" >
+               <div class="bg-cover" style="padding: 30px;background-image:url(&#39;./index/img/profile-bg.jpg&#39;);">
+                  <div class="p-xl text-center text-white">
+                     <a href="javascript:void(0);">
+                        <img alt="" class="img-thumbnail img-circle thumb128" src="./index/home/b9bbc281-d2e5-4582-92c0-a9dd4c64d5a9.png"></a>
+                     <h3 class="m0 mt" id="userUserName">DOUBLE</h3>
+                     <p>934590736@qq.com</p>
+                     <p id="userIntroduction">等一个人，等一段故事</p>
+                     
+                  </div>
+               </div>
+               <div class="text-center bg-gray-dark p-lg mb">
+                  <div class="row row-table">
+                     <div class="col-xs-4 br">
+                        <h3 class="m0" id="totalCount">81</h3>
+                        <p class="m0">
+                           <span>收藏</span>
+                           
+                        </p>
+                     </div>
+                     <div class="col-xs-4 br">
+                        <h3 class="m0">0</h3>
+                        <p class="m0">
+                           <span>关注</span>
+                        </p>
+                     </div>
+                     <div class="col-xs-4">
+                        <h3 class="m0" id="followed">0</h3>
+                        <p class="m0">
+                           <span>粉丝</span>
+                        </p>
+                     </div>
+                  </div>
+               </div>
+               <div class="p-lg">
+                  <div class="row">
+                     <div id="usercontent">
+   <div class="col-lg-9 col-md-9 mt" id="standard">
+	   <div class="btn-group btn-xs mb pull-right" style="margin-top: -25px;">
+	      <a class="btn btn-xs btn-default active">
+	         <span class="icon-layers"></span>
+	      </a>
+	      <a class="btn btn-xs btn-default" id="standardBtn">
+	         <span class="icon-list"></span>
+	      </a>
+	   </div>
+	<ul class="timeline-alt" id="collectStandardList">
+	 <li>
+	    <a href="javascript:void(0);" class="hidden-xs timeline-badge sharing-user-avatar" style="background-image:url(./index/home/b9bbc281-d2e5-4582-92c0-a9dd4c64d5a9.png)"></a>
+	    <div class="timeline-panel">
+	       <div class="popover right">
+	          <div class="arrow"></div>
+	          <div class="popover-content">
+	             <div class="table-grid">
+	                <div class="col">
+	                   <div class="pull-right dropdown dropdown-list">
+	                      <a href="./index/home/home.html" data-toggle="dropdown" class="sharing-more-button">
+	                         <span class="fa fa-angle-down"></span>
+	                      </a>
+	                      <ul class="dropdown-menu animated bounceIn">
+	                         <li>
+	                            <div class="list-group">
+	                               <a href="javascript:void(0);" class="list-group-item" onclick="getCollect(83,&#39;usercontent&#39;);">
+	                                  <div class="media-box">
+	                                     <div class="pull-left">
+	                                        <em class="fa fa-pencil-square-o fa-2x fa-fw text-info"></em>
+	                                     </div>
+	                                     <div class="media-box-body clearfix">
+	                                        <p class="m0">修改收藏</p>
+	                                        <p class="m0 text-muted">
+	                                           <small>修改收藏的各种属性</small>
+	                                        </p>
+	                                     </div>
+	                                  </div>
+	                               </a>
+	                               <a href="javascript:void(0);" class="list-group-item" onclick="onCollect(83,&#39;usercontent&#39;);">
+	                                  <div class="media-box">
+	                                     <div class="pull-left">
+	                                        <em class="fa fa-trash fa-2x fa-fw text-danger"></em>
+	                                     </div>
+	                                     <div class="media-box-body clearfix">
+	                                        <p class="m0">删除</p>
+	                                        <p class="m0 text-muted">
+	                                           <small>该分享会永久删除</small>
+	                                        </p>
+	                                     </div>
+	                                  </div>
+	                               </a>
+	                            </div>
+	                         </li>
+	                      </ul>
+	                   </div>
+	                   <div class="m0">
+	                      <a href="javascript:void(0);" class="text-muted" onclick="locationUrl(&#39;/user/1/0&#39;,&#39;&#39;);">DOUBLE</a>
+	                      <a class="deco-none" title="设为私密" href="javascript:void(0);" id="private83" style="display:inline-block" onclick="changePrivacy(83,&#39;PRIVATE&#39;);">
+	                         <span class="fa fa-lock" style="color: #eee;"></span>
+	                               </a>
+	                               <a class="deco-none" title="设为公开" href="javascript:void(0);" id="public83" style="display:none" onclick="changePrivacy(83,&#39;PUBLIC&#39;);">
+	                                  <span class="fa fa-lock text-warning"></span>
+	                               </a>
+	                               <small class="ml-sm text-muted">22个小时前</small>
+	                            </div>
+	                         </div>
+	                      </div>
+	                      <div class="m0">梁飞的博客 - ITeye技术网站</div>
+	                      <div class="media resource-card-thumbnail">
+	                         <a class="pull-left" target="_blank" href="http://javatar.iteye.com/">
+	                            <div class="media-object resource-card-image" style="background-image:url(http://www.iteye.com/images/rss.png?1448702469)"></div>
+	                         </a>
+	                         <div class="media-body">
+	                            <h4 class="visible-xs media-heading resource-card-title-xs">
+	                               <a target="_blank" href="http://javatar.iteye.com/">梁飞的博客 - ITeye技术网站</a>
+	                            </h4>
+	                            <h3 class="hidden-xs media-heading resource-card-title">
+	                               <a target="_blank" href="http://javatar.iteye.com/">梁飞的博客 - ITeye技术网站</a>
+	                            </h3>
+	                            <div class="hidden-xs resource-card-content">
+	                               <p>http://code.alibabatech.com/wiki/display/dubbo</p>
+	                            </div>
+	                         </div>
+	                      </div>
+	                      <div class="m0">
+	                        <span class="icon-folder mr-sm"></span>
+	                        <a href="javascript:void(0);" class="normal-color-a ng-binding" onclick="locationUrl(&#39;/standard/15/1&#39;,&#39;15&#39;);">架构之路</a>
+	                        <div class="pull-right hidden-xxs">
+	                           <small>
+	                              <!-- <a class="sharing-action-button">
+	                                 <span class="fa fa-share-alt"></span>
+	                                 	分享
+	                              </a>
+	                               <if  th:id="'likel' + ${collect.id}"  th:style="'display:' + @{(${collect.Praise} ? 'none' : 'inline-block')} + ''">
+	   |
+	</if>  -->
+	                              <a class="sharing-action-button" id="like83" style="display:none" onclick="changeLike(83);">
+	                                 <span class="fa fa-thumbs-o-up"></span>
+	                                 <show id="likeS83">点赞(1)</show>
+	                              </a>
+	       <!--                         <if th:id="'unlikel' + ${collect.id}"  th:style="'display:' + @{(${collect.Praise} ? 'inline-block' : 'none')}+ ''" >
+	   |
+	</if>  -->
+	                              <a class="sharing-action-button" id="unlike83" style="display:inline-block" onclick="changeLike(83);">
+	                                 <span class="fa fa-thumbs-up"></span>
+	                              	 <show id="unlikeS83">取消点赞(1)</show>
+	                              </a>
+	                              <input type="hidden" name="praiseC" id="praiseC83" value="1">
+	                              <input type="hidden" name="commentC" id="commentC83" value="0">
+	                              |
+	                              <a class="sharing-action-button btn-comment" href="javascript:void(0);" onclick="switchComment(83);">
+	                                 <span class="fa fa-comment-o"></span>
+	                                 <show id="commentS83">评论(0)</show>
+	                              </a>
+	
+	                              
+	                           </small>
+	                        </div>
+	                     </div>
+	                     <div class="collapse" id="collapse83">
+                             <comments id="commentList83"></comments>
+                             <div class="media p0" id="comment83">
+                                <div class="media-body">
+                                   <form>
+                                      <div class="input-group">
+                                         <input type="text" placeholder="输入评论..." class="form-control" id="commentContent83">
+                                         <span class="input-group-btn">
+                                            <button class="btn btn-default" type="button" onclick="comment(83);">发送</button>
+                                         </span>
+                                      </div>
+                                   </form>
+                                </div>
+                             </div>
+                          </div>
+	                   </div>
+	                </div>
+	             </div>
+	          </li>
+	 <li>
+	    <a href="javascript:void(0);" class="hidden-xs timeline-badge sharing-user-avatar" style="background-image:url(./index/home/b9bbc281-d2e5-4582-92c0-a9dd4c64d5a9.png)"></a>
+	    <div class="timeline-panel">
+	       <div class="popover right">
+	          <div class="arrow"></div>
+	          <div class="popover-content">
+	             <div class="table-grid">
+	                <div class="col">
+	                   <div class="pull-right dropdown dropdown-list">
+	                      <a href="./index/home/home.html" data-toggle="dropdown" class="sharing-more-button">
+	                         <span class="fa fa-angle-down"></span>
+	                      </a>
+	                      <ul class="dropdown-menu animated bounceIn">
+	                         <li>
+	                            <div class="list-group">
+	                               <a href="javascript:void(0);" class="list-group-item" onclick="getCollect(82,&#39;usercontent&#39;);">
+	                                  <div class="media-box">
+	                                     <div class="pull-left">
+	                                        <em class="fa fa-pencil-square-o fa-2x fa-fw text-info"></em>
+	                                     </div>
+	                                     <div class="media-box-body clearfix">
+	                                        <p class="m0">修改收藏</p>
+	                                        <p class="m0 text-muted">
+	                                           <small>修改收藏的各种属性</small>
+	                                        </p>
+	                                     </div>
+	                                  </div>
+	                               </a>
+	                               <a href="javascript:void(0);" class="list-group-item" onclick="onCollect(82,&#39;usercontent&#39;);">
+	                                  <div class="media-box">
+	                                     <div class="pull-left">
+	                                        <em class="fa fa-trash fa-2x fa-fw text-danger"></em>
+	                                     </div>
+	                                     <div class="media-box-body clearfix">
+	                                        <p class="m0">删除</p>
+	                                        <p class="m0 text-muted">
+	                                           <small>该分享会永久删除</small>
+	                                        </p>
+	                                     </div>
+	                                  </div>
+	                               </a>
+	                            </div>
+	                         </li>
+	                      </ul>
+	                   </div>
+	                   <div class="m0">
+	                      <a href="javascript:void(0);" class="text-muted" onclick="locationUrl(&#39;/user/1/0&#39;,&#39;&#39;);">DOUBLE</a>
+	                      <a class="deco-none" title="设为私密" href="javascript:void(0);" id="private82" style="display:inline-block" onclick="changePrivacy(82,&#39;PRIVATE&#39;);">
+	                         <span class="fa fa-lock" style="color: #eee;"></span>
+	                               </a>
+	                               <a class="deco-none" title="设为公开" href="javascript:void(0);" id="public82" style="display:none" onclick="changePrivacy(82,&#39;PUBLIC&#39;);">
+	                                  <span class="fa fa-lock text-warning"></span>
+	                               </a>
+	                               <small class="ml-sm text-muted">22个小时前</small>
+	                            </div>
+	                         </div>
+	                      </div>
+	                      <div class="m0">Spring 4 + Websocket + Stomp + ActimeMQ 实现消息推送-百联达-ITPUB博客</div>
+	                      <div class="media resource-card-thumbnail">
+	                         <a class="pull-left" target="_blank" href="http://blog.itpub.net/28624388/viewspace-1815701/">
+	                            <div class="media-object resource-card-image" style="background-image:url(http://blog.itpub.net/image/default/1.png)"></div>
+	                         </a>
+	                         <div class="media-body">
+	                            <h4 class="visible-xs media-heading resource-card-title-xs">
+	                               <a target="_blank" href="http://blog.itpub.net/28624388/viewspace-1815701/">Spring 4 + Websocket + Stomp + ActimeMQ 实现消息推送-百联达-ITPUB博客</a>
+	                            </h4>
+	                            <h3 class="hidden-xs media-heading resource-card-title">
+	                               <a target="_blank" href="http://blog.itpub.net/28624388/viewspace-1815701/">Spring 4 + Websocket + Stomp + ActimeMQ 实现消息推送-百联达-ITPUB博客</a>
+	                            </h3>
+	                            <div class="hidden-xs resource-card-content">
+	                               <p>一：代码结构
+二： pom.xml文件
+&lt;project
+三： web.xml文件
+四： spring-servlet.xml文件
+五：&nbsp;WebSocketConfig.java文件
+packag</p>
+	                            </div>
+	                         </div>
+	                      </div>
+	                      <div class="m0">
+	                        <span class="icon-folder mr-sm"></span>
+	                        <a href="javascript:void(0);" class="normal-color-a ng-binding" onclick="locationUrl(&#39;/standard/15/1&#39;,&#39;15&#39;);">架构之路</a>
+	                        <div class="pull-right hidden-xxs">
+	                           <small>
+	                              <!-- <a class="sharing-action-button">
+	                                 <span class="fa fa-share-alt"></span>
+	                                 	分享
+	                              </a>
+	                               <if  th:id="'likel' + ${collect.id}"  th:style="'display:' + @{(${collect.Praise} ? 'none' : 'inline-block')} + ''">
+	   |
+	</if>  -->
+	                              <a class="sharing-action-button" id="like82" style="display:inline-block" onclick="changeLike(82);">
+	                                 <span class="fa fa-thumbs-o-up"></span>
+	                                 <show id="likeS82">点赞(0)</show>
+	                              </a>
+	       <!--                         <if th:id="'unlikel' + ${collect.id}"  th:style="'display:' + @{(${collect.Praise} ? 'inline-block' : 'none')}+ ''" >
+	   |
+	</if>  -->
+	                              <a class="sharing-action-button" id="unlike82" style="display:none" onclick="changeLike(82);">
+	                                 <span class="fa fa-thumbs-up"></span>
+	                              	 <show id="unlikeS82">取消点赞(0)</show>
+	                              </a>
+	                              <input type="hidden" name="praiseC" id="praiseC82" value="0">
+	                              <input type="hidden" name="commentC" id="commentC82" value="0">
+	                              |
+	                              <a class="sharing-action-button btn-comment" href="javascript:void(0);" onclick="switchComment(82);">
+	                                 <span class="fa fa-comment-o"></span>
+	                                 <show id="commentS82">评论(0)</show>
+	                              </a>
+	
+	                              
+	                           </small>
+	                        </div>
+	                     </div>
+	                     <div class="collapse" id="collapse82">
+                             <comments id="commentList82"></comments>
+                             <div class="media p0" id="comment82">
+                                <div class="media-body">
+                                   <form>
+                                      <div class="input-group">
+                                         <input type="text" placeholder="输入评论..." class="form-control" id="commentContent82">
+                                         <span class="input-group-btn">
+                                            <button class="btn btn-default" type="button" onclick="comment(82);">发送</button>
+                                         </span>
+                                      </div>
+                                   </form>
+                                </div>
+                             </div>
+                          </div>
+	                   </div>
+	                </div>
+	             </div>
+	          </li>
+	 <li>
+	    <a href="javascript:void(0);" class="hidden-xs timeline-badge sharing-user-avatar" style="background-image:url(./index/home/b9bbc281-d2e5-4582-92c0-a9dd4c64d5a9.png)"></a>
+	    <div class="timeline-panel">
+	       <div class="popover right">
+	          <div class="arrow"></div>
+	          <div class="popover-content">
+	             <div class="table-grid">
+	                <div class="col">
+	                   <div class="pull-right dropdown dropdown-list">
+	                      <a href="./index/home/home.html" data-toggle="dropdown" class="sharing-more-button">
+	                         <span class="fa fa-angle-down"></span>
+	                      </a>
+	                      <ul class="dropdown-menu animated bounceIn">
+	                         <li>
+	                            <div class="list-group">
+	                               <a href="javascript:void(0);" class="list-group-item" onclick="getCollect(81,&#39;usercontent&#39;);">
+	                                  <div class="media-box">
+	                                     <div class="pull-left">
+	                                        <em class="fa fa-pencil-square-o fa-2x fa-fw text-info"></em>
+	                                     </div>
+	                                     <div class="media-box-body clearfix">
+	                                        <p class="m0">修改收藏</p>
+	                                        <p class="m0 text-muted">
+	                                           <small>修改收藏的各种属性</small>
+	                                        </p>
+	                                     </div>
+	                                  </div>
+	                               </a>
+	                               <a href="javascript:void(0);" class="list-group-item" onclick="onCollect(81,&#39;usercontent&#39;);">
+	                                  <div class="media-box">
+	                                     <div class="pull-left">
+	                                        <em class="fa fa-trash fa-2x fa-fw text-danger"></em>
+	                                     </div>
+	                                     <div class="media-box-body clearfix">
+	                                        <p class="m0">删除</p>
+	                                        <p class="m0 text-muted">
+	                                           <small>该分享会永久删除</small>
+	                                        </p>
+	                                     </div>
+	                                  </div>
+	                               </a>
+	                            </div>
+	                         </li>
+	                      </ul>
+	                   </div>
+	                   <div class="m0">
+	                      <a href="javascript:void(0);" class="text-muted" onclick="locationUrl(&#39;/user/1/0&#39;,&#39;&#39;);">DOUBLE</a>
+	                      <a class="deco-none" title="设为私密" href="javascript:void(0);" id="private81" style="display:inline-block" onclick="changePrivacy(81,&#39;PRIVATE&#39;);">
+	                         <span class="fa fa-lock" style="color: #eee;"></span>
+	                               </a>
+	                               <a class="deco-none" title="设为公开" href="javascript:void(0);" id="public81" style="display:none" onclick="changePrivacy(81,&#39;PUBLIC&#39;);">
+	                                  <span class="fa fa-lock text-warning"></span>
+	                               </a>
+	                               <small class="ml-sm text-muted">22个小时前</small>
+	                            </div>
+	                         </div>
+	                      </div>
+	                      <div class="m0">Netty简单介绍和例子 - 小海的专栏 - 博客频道 - CSDN.NET</div>
+	                      <div class="media resource-card-thumbnail">
+	                         <a class="pull-left" target="_blank" href="http://blog.csdn.net/duyuanhai/article/details/46788389">
+	                            <div class="media-object resource-card-image" style="background-image:url(http://static.blog.csdn.net/images/ico_list.gif)"></div>
+	                         </a>
+	                         <div class="media-body">
+	                            <h4 class="visible-xs media-heading resource-card-title-xs">
+	                               <a target="_blank" href="http://blog.csdn.net/duyuanhai/article/details/46788389">Netty简单介绍和例子 - 小海的专栏 - 博客频道 - CSDN.NET</a>
+	                            </h4>
+	                            <h3 class="hidden-xs media-heading resource-card-title">
+	                               <a target="_blank" href="http://blog.csdn.net/duyuanhai/article/details/46788389">Netty简单介绍和例子 - 小海的专栏 - 博客频道 - CSDN.NET</a>
+	                            </h3>
+	                            <div class="hidden-xs resource-card-content">
+	                               <p>如果我们在使用WEKA的过程中，在导入csv文件时出现了JVM堆大小不够的问题，我们就需要调整JVM的参数，将内存扩充到至少512M，调整方法如下：在WEKA的安装目录下（如C:\Program Files\Weka-3-5）找到RunWeka.ini文件，打开此文件，将此文件后面的maxheap=128m修改为maxheap=512m，然后保存即可。</p>
+	                            </div>
+	                         </div>
+	                      </div>
+	                      <div class="m0">
+	                        <span class="icon-folder mr-sm"></span>
+	                        <a href="javascript:void(0);" class="normal-color-a ng-binding" onclick="locationUrl(&#39;/standard/15/1&#39;,&#39;15&#39;);">架构之路</a>
+	                        <div class="pull-right hidden-xxs">
+	                           <small>
+	                              <!-- <a class="sharing-action-button">
+	                                 <span class="fa fa-share-alt"></span>
+	                                 	分享
+	                              </a>
+	                               <if  th:id="'likel' + ${collect.id}"  th:style="'display:' + @{(${collect.Praise} ? 'none' : 'inline-block')} + ''">
+	   |
+	</if>  -->
+	                              <a class="sharing-action-button" id="like81" style="display:inline-block" onclick="changeLike(81);">
+	                                 <span class="fa fa-thumbs-o-up"></span>
+	                                 <show id="likeS81">点赞(0)</show>
+	                              </a>
+	       <!--                         <if th:id="'unlikel' + ${collect.id}"  th:style="'display:' + @{(${collect.Praise} ? 'inline-block' : 'none')}+ ''" >
+	   |
+	</if>  -->
+	                              <a class="sharing-action-button" id="unlike81" style="display:none" onclick="changeLike(81);">
+	                                 <span class="fa fa-thumbs-up"></span>
+	                              	 <show id="unlikeS81">取消点赞(0)</show>
+	                              </a>
+	                              <input type="hidden" name="praiseC" id="praiseC81" value="0">
+	                              <input type="hidden" name="commentC" id="commentC81" value="0">
+	                              |
+	                              <a class="sharing-action-button btn-comment" href="javascript:void(0);" onclick="switchComment(81);">
+	                                 <span class="fa fa-comment-o"></span>
+	                                 <show id="commentS81">评论(0)</show>
+	                              </a>
+	
+	                              
+	                           </small>
+	                        </div>
+	                     </div>
+	                     <div class="collapse" id="collapse81">
+                             <comments id="commentList81"></comments>
+                             <div class="media p0" id="comment81">
+                                <div class="media-body">
+                                   <form>
+                                      <div class="input-group">
+                                         <input type="text" placeholder="输入评论..." class="form-control" id="commentContent81">
+                                         <span class="input-group-btn">
+                                            <button class="btn btn-default" type="button" onclick="comment(81);">发送</button>
+                                         </span>
+                                      </div>
+                                   </form>
+                                </div>
+                             </div>
+                          </div>
+	                   </div>
+	                </div>
+	             </div>
+	          </li>
+	 <li>
+	    <a href="javascript:void(0);" class="hidden-xs timeline-badge sharing-user-avatar" style="background-image:url(./index/home/b9bbc281-d2e5-4582-92c0-a9dd4c64d5a9.png)"></a>
+	    <div class="timeline-panel">
+	       <div class="popover right">
+	          <div class="arrow"></div>
+	          <div class="popover-content">
+	             <div class="table-grid">
+	                <div class="col">
+	                   <div class="pull-right dropdown dropdown-list">
+	                      <a href="./index/home/home.html" data-toggle="dropdown" class="sharing-more-button">
+	                         <span class="fa fa-angle-down"></span>
+	                      </a>
+	                      <ul class="dropdown-menu animated bounceIn">
+	                         <li>
+	                            <div class="list-group">
+	                               <a href="javascript:void(0);" class="list-group-item" onclick="getCollect(80,&#39;usercontent&#39;);">
+	                                  <div class="media-box">
+	                                     <div class="pull-left">
+	                                        <em class="fa fa-pencil-square-o fa-2x fa-fw text-info"></em>
+	                                     </div>
+	                                     <div class="media-box-body clearfix">
+	                                        <p class="m0">修改收藏</p>
+	                                        <p class="m0 text-muted">
+	                                           <small>修改收藏的各种属性</small>
+	                                        </p>
+	                                     </div>
+	                                  </div>
+	                               </a>
+	                               <a href="javascript:void(0);" class="list-group-item" onclick="onCollect(80,&#39;usercontent&#39;);">
+	                                  <div class="media-box">
+	                                     <div class="pull-left">
+	                                        <em class="fa fa-trash fa-2x fa-fw text-danger"></em>
+	                                     </div>
+	                                     <div class="media-box-body clearfix">
+	                                        <p class="m0">删除</p>
+	                                        <p class="m0 text-muted">
+	                                           <small>该分享会永久删除</small>
+	                                        </p>
+	                                     </div>
+	                                  </div>
+	                               </a>
+	                            </div>
+	                         </li>
+	                      </ul>
+	                   </div>
+	                   <div class="m0">
+	                      <a href="javascript:void(0);" class="text-muted" onclick="locationUrl(&#39;/user/1/0&#39;,&#39;&#39;);">DOUBLE</a>
+	                      <a class="deco-none" title="设为私密" href="javascript:void(0);" id="private80" style="display:inline-block" onclick="changePrivacy(80,&#39;PRIVATE&#39;);">
+	                         <span class="fa fa-lock" style="color: #eee;"></span>
+	                               </a>
+	                               <a class="deco-none" title="设为公开" href="javascript:void(0);" id="public80" style="display:none" onclick="changePrivacy(80,&#39;PUBLIC&#39;);">
+	                                  <span class="fa fa-lock text-warning"></span>
+	                               </a>
+	                               <small class="ml-sm text-muted">22个小时前</small>
+	                            </div>
+	                         </div>
+	                      </div>
+	                      <div class="m0">GitHub - bboyjing/sample</div>
+	                      <div class="media resource-card-thumbnail">
+	                         <a class="pull-left" target="_blank" href="https://github.com/bboyjing/sample/blob/master/blahblah.txt">
+	                            <div class="media-object resource-card-image" style="background-image:url(https://assets-cdn.github.com/images/spinners/octocat-spinner-32-EAF2F5.gif)"></div>
+	                         </a>
+	                         <div class="media-body">
+	                            <h4 class="visible-xs media-heading resource-card-title-xs">
+	                               <a target="_blank" href="https://github.com/bboyjing/sample/blob/master/blahblah.txt">sample/blahblah.txt at master · bboyjing/sample · GitHub</a>
+	                            </h4>
+	                            <h3 class="hidden-xs media-heading resource-card-title">
+	                               <a target="_blank" href="https://github.com/bboyjing/sample/blob/master/blahblah.txt">sample/blahblah.txt at master · bboyjing/sample · GitHub</a>
+	                            </h3>
+	                            <div class="hidden-xs resource-card-content">
+	                               <p>Contribute to sample development by creating an account on GitHub.</p>
+	                            </div>
+	                         </div>
+	                      </div>
+	                      <div class="m0">
+	                        <span class="icon-folder mr-sm"></span>
+	                        <a href="javascript:void(0);" class="normal-color-a ng-binding" onclick="locationUrl(&#39;/standard/15/1&#39;,&#39;15&#39;);">架构之路</a>
+	                        <div class="pull-right hidden-xxs">
+	                           <small>
+	                              <!-- <a class="sharing-action-button">
+	                                 <span class="fa fa-share-alt"></span>
+	                                 	分享
+	                              </a>
+	                               <if  th:id="'likel' + ${collect.id}"  th:style="'display:' + @{(${collect.Praise} ? 'none' : 'inline-block')} + ''">
+	   |
+	</if>  -->
+	                              <a class="sharing-action-button" id="like80" style="display:inline-block" onclick="changeLike(80);">
+	                                 <span class="fa fa-thumbs-o-up"></span>
+	                                 <show id="likeS80">点赞(0)</show>
+	                              </a>
+	       <!--                         <if th:id="'unlikel' + ${collect.id}"  th:style="'display:' + @{(${collect.Praise} ? 'inline-block' : 'none')}+ ''" >
+	   |
+	</if>  -->
+	                              <a class="sharing-action-button" id="unlike80" style="display:none" onclick="changeLike(80);">
+	                                 <span class="fa fa-thumbs-up"></span>
+	                              	 <show id="unlikeS80">取消点赞(0)</show>
+	                              </a>
+	                              <input type="hidden" name="praiseC" id="praiseC80" value="0">
+	                              <input type="hidden" name="commentC" id="commentC80" value="0">
+	                              |
+	                              <a class="sharing-action-button btn-comment" href="javascript:void(0);" onclick="switchComment(80);">
+	                                 <span class="fa fa-comment-o"></span>
+	                                 <show id="commentS80">评论(0)</show>
+	                              </a>
+	
+	                              
+	                           </small>
+	                        </div>
+	                     </div>
+	                     <div class="collapse" id="collapse80">
+                             <comments id="commentList80"></comments>
+                             <div class="media p0" id="comment80">
+                                <div class="media-body">
+                                   <form>
+                                      <div class="input-group">
+                                         <input type="text" placeholder="输入评论..." class="form-control" id="commentContent80">
+                                         <span class="input-group-btn">
+                                            <button class="btn btn-default" type="button" onclick="comment(80);">发送</button>
+                                         </span>
+                                      </div>
+                                   </form>
+                                </div>
+                             </div>
+                          </div>
+	                   </div>
+	                </div>
+	             </div>
+	          </li>
+	 <li>
+	    <a href="javascript:void(0);" class="hidden-xs timeline-badge sharing-user-avatar" style="background-image:url(./index/home/b9bbc281-d2e5-4582-92c0-a9dd4c64d5a9.png)"></a>
+	    <div class="timeline-panel">
+	       <div class="popover right">
+	          <div class="arrow"></div>
+	          <div class="popover-content">
+	             <div class="table-grid">
+	                <div class="col">
+	                   <div class="pull-right dropdown dropdown-list">
+	                      <a href="./index/home/home.html" data-toggle="dropdown" class="sharing-more-button">
+	                         <span class="fa fa-angle-down"></span>
+	                      </a>
+	                      <ul class="dropdown-menu animated bounceIn">
+	                         <li>
+	                            <div class="list-group">
+	                               <a href="javascript:void(0);" class="list-group-item" onclick="getCollect(79,&#39;usercontent&#39;);">
+	                                  <div class="media-box">
+	                                     <div class="pull-left">
+	                                        <em class="fa fa-pencil-square-o fa-2x fa-fw text-info"></em>
+	                                     </div>
+	                                     <div class="media-box-body clearfix">
+	                                        <p class="m0">修改收藏</p>
+	                                        <p class="m0 text-muted">
+	                                           <small>修改收藏的各种属性</small>
+	                                        </p>
+	                                     </div>
+	                                  </div>
+	                               </a>
+	                               <a href="javascript:void(0);" class="list-group-item" onclick="onCollect(79,&#39;usercontent&#39;);">
+	                                  <div class="media-box">
+	                                     <div class="pull-left">
+	                                        <em class="fa fa-trash fa-2x fa-fw text-danger"></em>
+	                                     </div>
+	                                     <div class="media-box-body clearfix">
+	                                        <p class="m0">删除</p>
+	                                        <p class="m0 text-muted">
+	                                           <small>该分享会永久删除</small>
+	                                        </p>
+	                                     </div>
+	                                  </div>
+	                               </a>
+	                            </div>
+	                         </li>
+	                      </ul>
+	                   </div>
+	                   <div class="m0">
+	                      <a href="javascript:void(0);" class="text-muted" onclick="locationUrl(&#39;/user/1/0&#39;,&#39;&#39;);">DOUBLE</a>
+	                      <a class="deco-none" title="设为私密" href="javascript:void(0);" id="private79" style="display:inline-block" onclick="changePrivacy(79,&#39;PRIVATE&#39;);">
+	                         <span class="fa fa-lock" style="color: #eee;"></span>
+	                               </a>
+	                               <a class="deco-none" title="设为公开" href="javascript:void(0);" id="public79" style="display:none" onclick="changePrivacy(79,&#39;PUBLIC&#39;);">
+	                                  <span class="fa fa-lock text-warning"></span>
+	                               </a>
+	                               <small class="ml-sm text-muted">22个小时前</small>
+	                            </div>
+	                         </div>
+	                      </div>
+	                      <div class="m0">Java Websocket实例【项目实战系列】 - 一不小心的程序员 - 博客频道 - CSDN.NET</div>
+	                      <div class="media resource-card-thumbnail">
+	                         <a class="pull-left" target="_blank" href="http://blog.csdn.net/lovelong8808/article/details/52212566">
+	                            <div class="media-object resource-card-image" style="background-image:url(http://static.blog.csdn.net/images/ico_list.gif)"></div>
+	                         </a>
+	                         <div class="media-body">
+	                            <h4 class="visible-xs media-heading resource-card-title-xs">
+	                               <a target="_blank" href="http://blog.csdn.net/lovelong8808/article/details/52212566">Java Websocket实例【项目实战系列】 - 一不小心的程序员 - 博客频道 - CSDN.NET</a>
+	                            </h4>
+	                            <h3 class="hidden-xs media-heading resource-card-title">
+	                               <a target="_blank" href="http://blog.csdn.net/lovelong8808/article/details/52212566">Java Websocket实例【项目实战系列】 - 一不小心的程序员 - 博客频道 - CSDN.NET</a>
+	                            </h3>
+	                            <div class="hidden-xs resource-card-content">
+	                               <p>如果我们在使用WEKA的过程中，在导入csv文件时出现了JVM堆大小不够的问题，我们就需要调整JVM的参数，将内存扩充到至少512M，调整方法如下：在WEKA的安装目录下（如C:\Program Files\Weka-3-5）找到RunWeka.ini文件，打开此文件，将此文件后面的maxheap=128m修改为maxheap=512m，然后保存即可。</p>
+	                            </div>
+	                         </div>
+	                      </div>
+	                      <div class="m0">
+	                        <span class="icon-folder mr-sm"></span>
+	                        <a href="javascript:void(0);" class="normal-color-a ng-binding" onclick="locationUrl(&#39;/standard/15/1&#39;,&#39;15&#39;);">架构之路</a>
+	                        <div class="pull-right hidden-xxs">
+	                           <small>
+	                              <!-- <a class="sharing-action-button">
+	                                 <span class="fa fa-share-alt"></span>
+	                                 	分享
+	                              </a>
+	                               <if  th:id="'likel' + ${collect.id}"  th:style="'display:' + @{(${collect.Praise} ? 'none' : 'inline-block')} + ''">
+	   |
+	</if>  -->
+	                              <a class="sharing-action-button" id="like79" style="display:inline-block" onclick="changeLike(79);">
+	                                 <span class="fa fa-thumbs-o-up"></span>
+	                                 <show id="likeS79">点赞(0)</show>
+	                              </a>
+	       <!--                         <if th:id="'unlikel' + ${collect.id}"  th:style="'display:' + @{(${collect.Praise} ? 'inline-block' : 'none')}+ ''" >
+	   |
+	</if>  -->
+	                              <a class="sharing-action-button" id="unlike79" style="display:none" onclick="changeLike(79);">
+	                                 <span class="fa fa-thumbs-up"></span>
+	                              	 <show id="unlikeS79">取消点赞(0)</show>
+	                              </a>
+	                              <input type="hidden" name="praiseC" id="praiseC79" value="0">
+	                              <input type="hidden" name="commentC" id="commentC79" value="0">
+	                              |
+	                              <a class="sharing-action-button btn-comment" href="javascript:void(0);" onclick="switchComment(79);">
+	                                 <span class="fa fa-comment-o"></span>
+	                                 <show id="commentS79">评论(0)</show>
+	                              </a>
+	
+	                              
+	                           </small>
+	                        </div>
+	                     </div>
+	                     <div class="collapse" id="collapse79">
+                             <comments id="commentList79"></comments>
+                             <div class="media p0" id="comment79">
+                                <div class="media-body">
+                                   <form>
+                                      <div class="input-group">
+                                         <input type="text" placeholder="输入评论..." class="form-control" id="commentContent79">
+                                         <span class="input-group-btn">
+                                            <button class="btn btn-default" type="button" onclick="comment(79);">发送</button>
+                                         </span>
+                                      </div>
+                                   </form>
+                                </div>
+                             </div>
+                          </div>
+	                   </div>
+	                </div>
+	             </div>
+	          </li>
+	 <li>
+	    <a href="javascript:void(0);" class="hidden-xs timeline-badge sharing-user-avatar" style="background-image:url(./index/home/b9bbc281-d2e5-4582-92c0-a9dd4c64d5a9.png)"></a>
+	    <div class="timeline-panel">
+	       <div class="popover right">
+	          <div class="arrow"></div>
+	          <div class="popover-content">
+	             <div class="table-grid">
+	                <div class="col">
+	                   <div class="pull-right dropdown dropdown-list">
+	                      <a href="./index/home/home.html" data-toggle="dropdown" class="sharing-more-button">
+	                         <span class="fa fa-angle-down"></span>
+	                      </a>
+	                      <ul class="dropdown-menu animated bounceIn">
+	                         <li>
+	                            <div class="list-group">
+	                               <a href="javascript:void(0);" class="list-group-item" onclick="getCollect(78,&#39;usercontent&#39;);">
+	                                  <div class="media-box">
+	                                     <div class="pull-left">
+	                                        <em class="fa fa-pencil-square-o fa-2x fa-fw text-info"></em>
+	                                     </div>
+	                                     <div class="media-box-body clearfix">
+	                                        <p class="m0">修改收藏</p>
+	                                        <p class="m0 text-muted">
+	                                           <small>修改收藏的各种属性</small>
+	                                        </p>
+	                                     </div>
+	                                  </div>
+	                               </a>
+	                               <a href="javascript:void(0);" class="list-group-item" onclick="onCollect(78,&#39;usercontent&#39;);">
+	                                  <div class="media-box">
+	                                     <div class="pull-left">
+	                                        <em class="fa fa-trash fa-2x fa-fw text-danger"></em>
+	                                     </div>
+	                                     <div class="media-box-body clearfix">
+	                                        <p class="m0">删除</p>
+	                                        <p class="m0 text-muted">
+	                                           <small>该分享会永久删除</small>
+	                                        </p>
+	                                     </div>
+	                                  </div>
+	                               </a>
+	                            </div>
+	                         </li>
+	                      </ul>
+	                   </div>
+	                   <div class="m0">
+	                      <a href="javascript:void(0);" class="text-muted" onclick="locationUrl(&#39;/user/1/0&#39;,&#39;&#39;);">DOUBLE</a>
+	                      <a class="deco-none" title="设为私密" href="javascript:void(0);" id="private78" style="display:inline-block" onclick="changePrivacy(78,&#39;PRIVATE&#39;);">
+	                         <span class="fa fa-lock" style="color: #eee;"></span>
+	                               </a>
+	                               <a class="deco-none" title="设为公开" href="javascript:void(0);" id="public78" style="display:none" onclick="changePrivacy(78,&#39;PUBLIC&#39;);">
+	                                  <span class="fa fa-lock text-warning"></span>
+	                               </a>
+	                               <small class="ml-sm text-muted">22个小时前</small>
+	                            </div>
+	                         </div>
+	                      </div>
+	                      <div class="m0">别再吐槽12306了，有本事你来写架构 - 推广 鸟哥笔记</div>
+	                      <div class="media resource-card-thumbnail">
+	                         <a class="pull-left" target="_blank" href="http://www.niaogebiji.com/article-6788-1.html">
+	                            <div class="media-object resource-card-image" style="background-image:url(http://aso.allfree.cc/images/ngbj_xs.png)"></div>
+	                         </a>
+	                         <div class="media-body">
+	                            <h4 class="visible-xs media-heading resource-card-title-xs">
+	                               <a target="_blank" href="http://www.niaogebiji.com/article-6788-1.html">别再吐槽12306了，有本事你来写架构 - 推广 鸟哥笔记</a>
+	                            </h4>
+	                            <h3 class="hidden-xs media-heading resource-card-title">
+	                               <a target="_blank" href="http://www.niaogebiji.com/article-6788-1.html">别再吐槽12306了，有本事你来写架构 - 推广 鸟哥笔记</a>
+	                            </h3>
+	                            <div class="hidden-xs resource-card-content">
+	                               <p>我曾在淘宝写过一段时间代码，2012年在一家百强民企做电商副总，当时在极为艰苦的条件下带队开发了一个B2C网站，走支付宝和银联支付通道，年营业额千万级（当然实在太少了，我只是说这个网站投入了实际的运营）。 ,鸟哥笔记</p>
+	                            </div>
+	                         </div>
+	                      </div>
+	                      <div class="m0">
+	                        <span class="icon-folder mr-sm"></span>
+	                        <a href="javascript:void(0);" class="normal-color-a ng-binding" onclick="locationUrl(&#39;/standard/15/1&#39;,&#39;15&#39;);">架构之路</a>
+	                        <div class="pull-right hidden-xxs">
+	                           <small>
+	                              <!-- <a class="sharing-action-button">
+	                                 <span class="fa fa-share-alt"></span>
+	                                 	分享
+	                              </a>
+	                               <if  th:id="'likel' + ${collect.id}"  th:style="'display:' + @{(${collect.Praise} ? 'none' : 'inline-block')} + ''">
+	   |
+	</if>  -->
+	                              <a class="sharing-action-button" id="like78" style="display:inline-block" onclick="changeLike(78);">
+	                                 <span class="fa fa-thumbs-o-up"></span>
+	                                 <show id="likeS78">点赞(0)</show>
+	                              </a>
+	       <!--                         <if th:id="'unlikel' + ${collect.id}"  th:style="'display:' + @{(${collect.Praise} ? 'inline-block' : 'none')}+ ''" >
+	   |
+	</if>  -->
+	                              <a class="sharing-action-button" id="unlike78" style="display:none" onclick="changeLike(78);">
+	                                 <span class="fa fa-thumbs-up"></span>
+	                              	 <show id="unlikeS78">取消点赞(0)</show>
+	                              </a>
+	                              <input type="hidden" name="praiseC" id="praiseC78" value="0">
+	                              <input type="hidden" name="commentC" id="commentC78" value="0">
+	                              |
+	                              <a class="sharing-action-button btn-comment" href="javascript:void(0);" onclick="switchComment(78);">
+	                                 <span class="fa fa-comment-o"></span>
+	                                 <show id="commentS78">评论(0)</show>
+	                              </a>
+	
+	                              
+	                           </small>
+	                        </div>
+	                     </div>
+	                     <div class="collapse" id="collapse78">
+                             <comments id="commentList78"></comments>
+                             <div class="media p0" id="comment78">
+                                <div class="media-body">
+                                   <form>
+                                      <div class="input-group">
+                                         <input type="text" placeholder="输入评论..." class="form-control" id="commentContent78">
+                                         <span class="input-group-btn">
+                                            <button class="btn btn-default" type="button" onclick="comment(78);">发送</button>
+                                         </span>
+                                      </div>
+                                   </form>
+                                </div>
+                             </div>
+                          </div>
+	                   </div>
+	                </div>
+	             </div>
+	          </li>
+	 <li>
+	    <a href="javascript:void(0);" class="hidden-xs timeline-badge sharing-user-avatar" style="background-image:url(./index/home/b9bbc281-d2e5-4582-92c0-a9dd4c64d5a9.png)"></a>
+	    <div class="timeline-panel">
+	       <div class="popover right">
+	          <div class="arrow"></div>
+	          <div class="popover-content">
+	             <div class="table-grid">
+	                <div class="col">
+	                   <div class="pull-right dropdown dropdown-list">
+	                      <a href="./index/home/home.html" data-toggle="dropdown" class="sharing-more-button">
+	                         <span class="fa fa-angle-down"></span>
+	                      </a>
+	                      <ul class="dropdown-menu animated bounceIn">
+	                         <li>
+	                            <div class="list-group">
+	                               <a href="javascript:void(0);" class="list-group-item" onclick="getCollect(77,&#39;usercontent&#39;);">
+	                                  <div class="media-box">
+	                                     <div class="pull-left">
+	                                        <em class="fa fa-pencil-square-o fa-2x fa-fw text-info"></em>
+	                                     </div>
+	                                     <div class="media-box-body clearfix">
+	                                        <p class="m0">修改收藏</p>
+	                                        <p class="m0 text-muted">
+	                                           <small>修改收藏的各种属性</small>
+	                                        </p>
+	                                     </div>
+	                                  </div>
+	                               </a>
+	                               <a href="javascript:void(0);" class="list-group-item" onclick="onCollect(77,&#39;usercontent&#39;);">
+	                                  <div class="media-box">
+	                                     <div class="pull-left">
+	                                        <em class="fa fa-trash fa-2x fa-fw text-danger"></em>
+	                                     </div>
+	                                     <div class="media-box-body clearfix">
+	                                        <p class="m0">删除</p>
+	                                        <p class="m0 text-muted">
+	                                           <small>该分享会永久删除</small>
+	                                        </p>
+	                                     </div>
+	                                  </div>
+	                               </a>
+	                            </div>
+	                         </li>
+	                      </ul>
+	                   </div>
+	                   <div class="m0">
+	                      <a href="javascript:void(0);" class="text-muted" onclick="locationUrl(&#39;/user/1/0&#39;,&#39;&#39;);">DOUBLE</a>
+	                      <a class="deco-none" title="设为私密" href="javascript:void(0);" id="private77" style="display:inline-block" onclick="changePrivacy(77,&#39;PRIVATE&#39;);">
+	                         <span class="fa fa-lock" style="color: #eee;"></span>
+	                               </a>
+	                               <a class="deco-none" title="设为公开" href="javascript:void(0);" id="public77" style="display:none" onclick="changePrivacy(77,&#39;PUBLIC&#39;);">
+	                                  <span class="fa fa-lock text-warning"></span>
+	                               </a>
+	                               <small class="ml-sm text-muted">22个小时前</small>
+	                            </div>
+	                         </div>
+	                      </div>
+	                      <div class="m0">《Storm入门》中文版 | 并发编程网 – ifeve.com</div>
+	                      <div class="media resource-card-thumbnail">
+	                         <a class="pull-left" target="_blank" href="http://ifeve.com/getting-started-with-stom-index/">
+	                            <div class="media-object resource-card-image" style="background-image:url(http://ifeve.com/wp-content/uploads/2014/03/storm.jpg)"></div>
+	                         </a>
+	                         <div class="media-body">
+	                            <h4 class="visible-xs media-heading resource-card-title-xs">
+	                               <a target="_blank" href="http://ifeve.com/getting-started-with-stom-index/">《Storm入门》中文版 | 并发编程网 – ifeve.com</a>
+	                            </h4>
+	                            <h3 class="hidden-xs media-heading resource-card-title">
+	                               <a target="_blank" href="http://ifeve.com/getting-started-with-stom-index/">《Storm入门》中文版 | 并发编程网 – ifeve.com</a>
+	                            </h3>
+	                            <div class="hidden-xs resource-card-content">
+	                               <p>让天下没有难学的技术</p>
+	                            </div>
+	                         </div>
+	                      </div>
+	                      <div class="m0">
+	                        <span class="icon-folder mr-sm"></span>
+	                        <a href="javascript:void(0);" class="normal-color-a ng-binding" onclick="locationUrl(&#39;/standard/15/1&#39;,&#39;15&#39;);">架构之路</a>
+	                        <div class="pull-right hidden-xxs">
+	                           <small>
+	                              <!-- <a class="sharing-action-button">
+	                                 <span class="fa fa-share-alt"></span>
+	                                 	分享
+	                              </a>
+	                               <if  th:id="'likel' + ${collect.id}"  th:style="'display:' + @{(${collect.Praise} ? 'none' : 'inline-block')} + ''">
+	   |
+	</if>  -->
+	                              <a class="sharing-action-button" id="like77" style="display:inline-block" onclick="changeLike(77);">
+	                                 <span class="fa fa-thumbs-o-up"></span>
+	                                 <show id="likeS77">点赞(0)</show>
+	                              </a>
+	       <!--                         <if th:id="'unlikel' + ${collect.id}"  th:style="'display:' + @{(${collect.Praise} ? 'inline-block' : 'none')}+ ''" >
+	   |
+	</if>  -->
+	                              <a class="sharing-action-button" id="unlike77" style="display:none" onclick="changeLike(77);">
+	                                 <span class="fa fa-thumbs-up"></span>
+	                              	 <show id="unlikeS77">取消点赞(0)</show>
+	                              </a>
+	                              <input type="hidden" name="praiseC" id="praiseC77" value="0">
+	                              <input type="hidden" name="commentC" id="commentC77" value="0">
+	                              |
+	                              <a class="sharing-action-button btn-comment" href="javascript:void(0);" onclick="switchComment(77);">
+	                                 <span class="fa fa-comment-o"></span>
+	                                 <show id="commentS77">评论(0)</show>
+	                              </a>
+	
+	                              
+	                           </small>
+	                        </div>
+	                     </div>
+	                     <div class="collapse" id="collapse77">
+                             <comments id="commentList77"></comments>
+                             <div class="media p0" id="comment77">
+                                <div class="media-body">
+                                   <form>
+                                      <div class="input-group">
+                                         <input type="text" placeholder="输入评论..." class="form-control" id="commentContent77">
+                                         <span class="input-group-btn">
+                                            <button class="btn btn-default" type="button" onclick="comment(77);">发送</button>
+                                         </span>
+                                      </div>
+                                   </form>
+                                </div>
+                             </div>
+                          </div>
+	                   </div>
+	                </div>
+	             </div>
+	          </li>
+	 <li>
+	    <a href="javascript:void(0);" class="hidden-xs timeline-badge sharing-user-avatar" style="background-image:url(./index/home/b9bbc281-d2e5-4582-92c0-a9dd4c64d5a9.png)"></a>
+	    <div class="timeline-panel">
+	       <div class="popover right">
+	          <div class="arrow"></div>
+	          <div class="popover-content">
+	             <div class="table-grid">
+	                <div class="col">
+	                   <div class="pull-right dropdown dropdown-list">
+	                      <a href="./index/home/home.html" data-toggle="dropdown" class="sharing-more-button">
+	                         <span class="fa fa-angle-down"></span>
+	                      </a>
+	                      <ul class="dropdown-menu animated bounceIn">
+	                         <li>
+	                            <div class="list-group">
+	                               <a href="javascript:void(0);" class="list-group-item" onclick="getCollect(76,&#39;usercontent&#39;);">
+	                                  <div class="media-box">
+	                                     <div class="pull-left">
+	                                        <em class="fa fa-pencil-square-o fa-2x fa-fw text-info"></em>
+	                                     </div>
+	                                     <div class="media-box-body clearfix">
+	                                        <p class="m0">修改收藏</p>
+	                                        <p class="m0 text-muted">
+	                                           <small>修改收藏的各种属性</small>
+	                                        </p>
+	                                     </div>
+	                                  </div>
+	                               </a>
+	                               <a href="javascript:void(0);" class="list-group-item" onclick="onCollect(76,&#39;usercontent&#39;);">
+	                                  <div class="media-box">
+	                                     <div class="pull-left">
+	                                        <em class="fa fa-trash fa-2x fa-fw text-danger"></em>
+	                                     </div>
+	                                     <div class="media-box-body clearfix">
+	                                        <p class="m0">删除</p>
+	                                        <p class="m0 text-muted">
+	                                           <small>该分享会永久删除</small>
+	                                        </p>
+	                                     </div>
+	                                  </div>
+	                               </a>
+	                            </div>
+	                         </li>
+	                      </ul>
+	                   </div>
+	                   <div class="m0">
+	                      <a href="javascript:void(0);" class="text-muted" onclick="locationUrl(&#39;/user/1/0&#39;,&#39;&#39;);">DOUBLE</a>
+	                      <a class="deco-none" title="设为私密" href="javascript:void(0);" id="private76" style="display:inline-block" onclick="changePrivacy(76,&#39;PRIVATE&#39;);">
+	                         <span class="fa fa-lock" style="color: #eee;"></span>
+	                               </a>
+	                               <a class="deco-none" title="设为公开" href="javascript:void(0);" id="public76" style="display:none" onclick="changePrivacy(76,&#39;PUBLIC&#39;);">
+	                                  <span class="fa fa-lock text-warning"></span>
+	                               </a>
+	                               <small class="ml-sm text-muted">22个小时前</small>
+	                            </div>
+	                         </div>
+	                      </div>
+	                      <div class="m0">Word转PDF在线免费 – Word在线转换成PDF - 迅捷PDF转换器在线免费版</div>
+	                      <div class="media resource-card-thumbnail">
+	                         <a class="pull-left" target="_blank" href="http://app.xunjiepdf.com/word2pdf">
+	                            <div class="media-object resource-card-image" style="background-image:url(http://app.xunjiepdf.com/images/lianxi-02.png)"></div>
+	                         </a>
+	                         <div class="media-body">
+	                            <h4 class="visible-xs media-heading resource-card-title-xs">
+	                               <a target="_blank" href="http://app.xunjiepdf.com/word2pdf">Word转PDF在线免费 – Word在线转换成PDF - 迅捷PDF转换器在线免费版</a>
+	                            </h4>
+	                            <h3 class="hidden-xs media-heading resource-card-title">
+	                               <a target="_blank" href="http://app.xunjiepdf.com/word2pdf">Word转PDF在线免费 – Word在线转换成PDF - 迅捷PDF转换器在线免费版</a>
+	                            </h3>
+	                            <div class="hidden-xs resource-card-content">
+	                               <p>迅捷在线word转pdf转换器免费版为您免费提供在线word转成pdf,word在线转换成pdf,word转换成pdf转换器在线等免费word在线转pdf服务！</p>
+	                            </div>
+	                         </div>
+	                      </div>
+	                      <div class="m0">
+	                        <span class="icon-folder mr-sm"></span>
+	                        <a href="javascript:void(0);" class="normal-color-a ng-binding" onclick="locationUrl(&#39;/standard/15/1&#39;,&#39;15&#39;);">架构之路</a>
+	                        <div class="pull-right hidden-xxs">
+	                           <small>
+	                              <!-- <a class="sharing-action-button">
+	                                 <span class="fa fa-share-alt"></span>
+	                                 	分享
+	                              </a>
+	                               <if  th:id="'likel' + ${collect.id}"  th:style="'display:' + @{(${collect.Praise} ? 'none' : 'inline-block')} + ''">
+	   |
+	</if>  -->
+	                              <a class="sharing-action-button" id="like76" style="display:inline-block" onclick="changeLike(76);">
+	                                 <span class="fa fa-thumbs-o-up"></span>
+	                                 <show id="likeS76">点赞(0)</show>
+	                              </a>
+	       <!--                         <if th:id="'unlikel' + ${collect.id}"  th:style="'display:' + @{(${collect.Praise} ? 'inline-block' : 'none')}+ ''" >
+	   |
+	</if>  -->
+	                              <a class="sharing-action-button" id="unlike76" style="display:none" onclick="changeLike(76);">
+	                                 <span class="fa fa-thumbs-up"></span>
+	                              	 <show id="unlikeS76">取消点赞(0)</show>
+	                              </a>
+	                              <input type="hidden" name="praiseC" id="praiseC76" value="0">
+	                              <input type="hidden" name="commentC" id="commentC76" value="0">
+	                              |
+	                              <a class="sharing-action-button btn-comment" href="javascript:void(0);" onclick="switchComment(76);">
+	                                 <span class="fa fa-comment-o"></span>
+	                                 <show id="commentS76">评论(0)</show>
+	                              </a>
+	
+	                              
+	                           </small>
+	                        </div>
+	                     </div>
+	                     <div class="collapse" id="collapse76">
+                             <comments id="commentList76"></comments>
+                             <div class="media p0" id="comment76">
+                                <div class="media-body">
+                                   <form>
+                                      <div class="input-group">
+                                         <input type="text" placeholder="输入评论..." class="form-control" id="commentContent76">
+                                         <span class="input-group-btn">
+                                            <button class="btn btn-default" type="button" onclick="comment(76);">发送</button>
+                                         </span>
+                                      </div>
+                                   </form>
+                                </div>
+                             </div>
+                          </div>
+	                   </div>
+	                </div>
+	             </div>
+	          </li>
+	 <li>
+	    <a href="javascript:void(0);" class="hidden-xs timeline-badge sharing-user-avatar" style="background-image:url(./index/home/b9bbc281-d2e5-4582-92c0-a9dd4c64d5a9.png)"></a>
+	    <div class="timeline-panel">
+	       <div class="popover right">
+	          <div class="arrow"></div>
+	          <div class="popover-content">
+	             <div class="table-grid">
+	                <div class="col">
+	                   <div class="pull-right dropdown dropdown-list">
+	                      <a href="./index/home/home.html" data-toggle="dropdown" class="sharing-more-button">
+	                         <span class="fa fa-angle-down"></span>
+	                      </a>
+	                      <ul class="dropdown-menu animated bounceIn">
+	                         <li>
+	                            <div class="list-group">
+	                               <a href="javascript:void(0);" class="list-group-item" onclick="getCollect(75,&#39;usercontent&#39;);">
+	                                  <div class="media-box">
+	                                     <div class="pull-left">
+	                                        <em class="fa fa-pencil-square-o fa-2x fa-fw text-info"></em>
+	                                     </div>
+	                                     <div class="media-box-body clearfix">
+	                                        <p class="m0">修改收藏</p>
+	                                        <p class="m0 text-muted">
+	                                           <small>修改收藏的各种属性</small>
+	                                        </p>
+	                                     </div>
+	                                  </div>
+	                               </a>
+	                               <a href="javascript:void(0);" class="list-group-item" onclick="onCollect(75,&#39;usercontent&#39;);">
+	                                  <div class="media-box">
+	                                     <div class="pull-left">
+	                                        <em class="fa fa-trash fa-2x fa-fw text-danger"></em>
+	                                     </div>
+	                                     <div class="media-box-body clearfix">
+	                                        <p class="m0">删除</p>
+	                                        <p class="m0 text-muted">
+	                                           <small>该分享会永久删除</small>
+	                                        </p>
+	                                     </div>
+	                                  </div>
+	                               </a>
+	                            </div>
+	                         </li>
+	                      </ul>
+	                   </div>
+	                   <div class="m0">
+	                      <a href="javascript:void(0);" class="text-muted" onclick="locationUrl(&#39;/user/1/0&#39;,&#39;&#39;);">DOUBLE</a>
+	                      <a class="deco-none" title="设为私密" href="javascript:void(0);" id="private75" style="display:inline-block" onclick="changePrivacy(75,&#39;PRIVATE&#39;);">
+	                         <span class="fa fa-lock" style="color: #eee;"></span>
+	                               </a>
+	                               <a class="deco-none" title="设为公开" href="javascript:void(0);" id="public75" style="display:none" onclick="changePrivacy(75,&#39;PUBLIC&#39;);">
+	                                  <span class="fa fa-lock text-warning"></span>
+	                               </a>
+	                               <small class="ml-sm text-muted">22个小时前</small>
+	                            </div>
+	                         </div>
+	                      </div>
+	                      <div class="m0">Dubbo与Zookeeper、SpringMVC整合和使用（负载均衡、容错） - 好库文摘</div>
+	                      <div class="media resource-card-thumbnail">
+	                         <a class="pull-left" target="_blank" href="http://doc.okbase.net/congcong68/archive/112508.html">
+	                            <div class="media-object resource-card-image" style="background-image:url(http://doc.okbase.net/images/dlogtitle.png)"></div>
+	                         </a>
+	                         <div class="media-body">
+	                            <h4 class="visible-xs media-heading resource-card-title-xs">
+	                               <a target="_blank" href="http://doc.okbase.net/congcong68/archive/112508.html">Dubbo与Zookeeper、SpringMVC整合和使用（负载均衡、容错） - 好库文摘</a>
+	                            </h4>
+	                            <h3 class="hidden-xs media-heading resource-card-title">
+	                               <a target="_blank" href="http://doc.okbase.net/congcong68/archive/112508.html">Dubbo与Zookeeper、SpringMVC整合和使用（负载均衡、容错） - 好库文摘</a>
+	                            </h3>
+	                            <div class="hidden-xs resource-card-content">
+	                               <p>Dubbo与Zookeeper、SpringMVC整合和使用（负载均衡、容错） - 好库文摘</p>
+	                            </div>
+	                         </div>
+	                      </div>
+	                      <div class="m0">
+	                        <span class="icon-folder mr-sm"></span>
+	                        <a href="javascript:void(0);" class="normal-color-a ng-binding" onclick="locationUrl(&#39;/standard/15/1&#39;,&#39;15&#39;);">架构之路</a>
+	                        <div class="pull-right hidden-xxs">
+	                           <small>
+	                              <!-- <a class="sharing-action-button">
+	                                 <span class="fa fa-share-alt"></span>
+	                                 	分享
+	                              </a>
+	                               <if  th:id="'likel' + ${collect.id}"  th:style="'display:' + @{(${collect.Praise} ? 'none' : 'inline-block')} + ''">
+	   |
+	</if>  -->
+	                              <a class="sharing-action-button" id="like75" style="display:inline-block" onclick="changeLike(75);">
+	                                 <span class="fa fa-thumbs-o-up"></span>
+	                                 <show id="likeS75">点赞(0)</show>
+	                              </a>
+	       <!--                         <if th:id="'unlikel' + ${collect.id}"  th:style="'display:' + @{(${collect.Praise} ? 'inline-block' : 'none')}+ ''" >
+	   |
+	</if>  -->
+	                              <a class="sharing-action-button" id="unlike75" style="display:none" onclick="changeLike(75);">
+	                                 <span class="fa fa-thumbs-up"></span>
+	                              	 <show id="unlikeS75">取消点赞(0)</show>
+	                              </a>
+	                              <input type="hidden" name="praiseC" id="praiseC75" value="0">
+	                              <input type="hidden" name="commentC" id="commentC75" value="0">
+	                              |
+	                              <a class="sharing-action-button btn-comment" href="javascript:void(0);" onclick="switchComment(75);">
+	                                 <span class="fa fa-comment-o"></span>
+	                                 <show id="commentS75">评论(0)</show>
+	                              </a>
+	
+	                              
+	                           </small>
+	                        </div>
+	                     </div>
+	                     <div class="collapse" id="collapse75">
+                             <comments id="commentList75"></comments>
+                             <div class="media p0" id="comment75">
+                                <div class="media-body">
+                                   <form>
+                                      <div class="input-group">
+                                         <input type="text" placeholder="输入评论..." class="form-control" id="commentContent75">
+                                         <span class="input-group-btn">
+                                            <button class="btn btn-default" type="button" onclick="comment(75);">发送</button>
+                                         </span>
+                                      </div>
+                                   </form>
+                                </div>
+                             </div>
+                          </div>
+	                   </div>
+	                </div>
+	             </div>
+	          </li>
+	 <li>
+	    <a href="javascript:void(0);" class="hidden-xs timeline-badge sharing-user-avatar" style="background-image:url(./index/home/b9bbc281-d2e5-4582-92c0-a9dd4c64d5a9.png)"></a>
+	    <div class="timeline-panel">
+	       <div class="popover right">
+	          <div class="arrow"></div>
+	          <div class="popover-content">
+	             <div class="table-grid">
+	                <div class="col">
+	                   <div class="pull-right dropdown dropdown-list">
+	                      <a href="./index/home/home.html" data-toggle="dropdown" class="sharing-more-button">
+	                         <span class="fa fa-angle-down"></span>
+	                      </a>
+	                      <ul class="dropdown-menu animated bounceIn">
+	                         <li>
+	                            <div class="list-group">
+	                               <a href="javascript:void(0);" class="list-group-item" onclick="getCollect(74,&#39;usercontent&#39;);">
+	                                  <div class="media-box">
+	                                     <div class="pull-left">
+	                                        <em class="fa fa-pencil-square-o fa-2x fa-fw text-info"></em>
+	                                     </div>
+	                                     <div class="media-box-body clearfix">
+	                                        <p class="m0">修改收藏</p>
+	                                        <p class="m0 text-muted">
+	                                           <small>修改收藏的各种属性</small>
+	                                        </p>
+	                                     </div>
+	                                  </div>
+	                               </a>
+	                               <a href="javascript:void(0);" class="list-group-item" onclick="onCollect(74,&#39;usercontent&#39;);">
+	                                  <div class="media-box">
+	                                     <div class="pull-left">
+	                                        <em class="fa fa-trash fa-2x fa-fw text-danger"></em>
+	                                     </div>
+	                                     <div class="media-box-body clearfix">
+	                                        <p class="m0">删除</p>
+	                                        <p class="m0 text-muted">
+	                                           <small>该分享会永久删除</small>
+	                                        </p>
+	                                     </div>
+	                                  </div>
+	                               </a>
+	                            </div>
+	                         </li>
+	                      </ul>
+	                   </div>
+	                   <div class="m0">
+	                      <a href="javascript:void(0);" class="text-muted" onclick="locationUrl(&#39;/user/1/0&#39;,&#39;&#39;);">DOUBLE</a>
+	                      <a class="deco-none" title="设为私密" href="javascript:void(0);" id="private74" style="display:inline-block" onclick="changePrivacy(74,&#39;PRIVATE&#39;);">
+	                         <span class="fa fa-lock" style="color: #eee;"></span>
+	                               </a>
+	                               <a class="deco-none" title="设为公开" href="javascript:void(0);" id="public74" style="display:none" onclick="changePrivacy(74,&#39;PUBLIC&#39;);">
+	                                  <span class="fa fa-lock text-warning"></span>
+	                               </a>
+	                               <small class="ml-sm text-muted">22个小时前</small>
+	                            </div>
+	                         </div>
+	                      </div>
+	                      <div class="m0">WEB架构师成长之路之一-走正确的路 - 赵学智 - 博客园</div>
+	                      <div class="media resource-card-thumbnail">
+	                         <a class="pull-left" target="_blank" href="http://www.cnblogs.com/seesea125/archive/2012/03/30/2425281.html">
+	                            <div class="media-object resource-card-image" style="background-image:url(http://www.cnblogs.com/Skins/custom/images/logo.gif)"></div>
+	                         </a>
+	                         <div class="media-body">
+	                            <h4 class="visible-xs media-heading resource-card-title-xs">
+	                               <a target="_blank" href="http://www.cnblogs.com/seesea125/archive/2012/03/30/2425281.html">WEB架构师成长之路之一-走正确的路 - 赵学智 - 博客园</a>
+	                            </h4>
+	                            <h3 class="hidden-xs media-heading resource-card-title">
+	                               <a target="_blank" href="http://www.cnblogs.com/seesea125/archive/2012/03/30/2425281.html">WEB架构师成长之路之一-走正确的路 - 赵学智 - 博客园</a>
+	                            </h3>
+	                            <div class="hidden-xs resource-card-content">
+	                               <p>WEB架构师成长之路之一-走正确的路 - 赵学智 - 博客园</p>
+	                            </div>
+	                         </div>
+	                      </div>
+	                      <div class="m0">
+	                        <span class="icon-folder mr-sm"></span>
+	                        <a href="javascript:void(0);" class="normal-color-a ng-binding" onclick="locationUrl(&#39;/standard/15/1&#39;,&#39;15&#39;);">架构之路</a>
+	                        <div class="pull-right hidden-xxs">
+	                           <small>
+	                              <!-- <a class="sharing-action-button">
+	                                 <span class="fa fa-share-alt"></span>
+	                                 	分享
+	                              </a>
+	                               <if  th:id="'likel' + ${collect.id}"  th:style="'display:' + @{(${collect.Praise} ? 'none' : 'inline-block')} + ''">
+	   |
+	</if>  -->
+	                              <a class="sharing-action-button" id="like74" style="display:inline-block" onclick="changeLike(74);">
+	                                 <span class="fa fa-thumbs-o-up"></span>
+	                                 <show id="likeS74">点赞(0)</show>
+	                              </a>
+	       <!--                         <if th:id="'unlikel' + ${collect.id}"  th:style="'display:' + @{(${collect.Praise} ? 'inline-block' : 'none')}+ ''" >
+	   |
+	</if>  -->
+	                              <a class="sharing-action-button" id="unlike74" style="display:none" onclick="changeLike(74);">
+	                                 <span class="fa fa-thumbs-up"></span>
+	                              	 <show id="unlikeS74">取消点赞(0)</show>
+	                              </a>
+	                              <input type="hidden" name="praiseC" id="praiseC74" value="0">
+	                              <input type="hidden" name="commentC" id="commentC74" value="0">
+	                              |
+	                              <a class="sharing-action-button btn-comment" href="javascript:void(0);" onclick="switchComment(74);">
+	                                 <span class="fa fa-comment-o"></span>
+	                                 <show id="commentS74">评论(0)</show>
+	                              </a>
+	
+	                              
+	                           </small>
+	                        </div>
+	                     </div>
+	                     <div class="collapse" id="collapse74">
+                             <comments id="commentList74"></comments>
+                             <div class="media p0" id="comment74">
+                                <div class="media-body">
+                                   <form>
+                                      <div class="input-group">
+                                         <input type="text" placeholder="输入评论..." class="form-control" id="commentContent74">
+                                         <span class="input-group-btn">
+                                            <button class="btn btn-default" type="button" onclick="comment(74);">发送</button>
+                                         </span>
+                                      </div>
+                                   </form>
+                                </div>
+                             </div>
+                          </div>
+	                   </div>
+	                </div>
+	             </div>
+	          </li>
+	 <li>
+	    <a href="javascript:void(0);" class="hidden-xs timeline-badge sharing-user-avatar" style="background-image:url(./index/home/b9bbc281-d2e5-4582-92c0-a9dd4c64d5a9.png)"></a>
+	    <div class="timeline-panel">
+	       <div class="popover right">
+	          <div class="arrow"></div>
+	          <div class="popover-content">
+	             <div class="table-grid">
+	                <div class="col">
+	                   <div class="pull-right dropdown dropdown-list">
+	                      <a href="./index/home/home.html" data-toggle="dropdown" class="sharing-more-button">
+	                         <span class="fa fa-angle-down"></span>
+	                      </a>
+	                      <ul class="dropdown-menu animated bounceIn">
+	                         <li>
+	                            <div class="list-group">
+	                               <a href="javascript:void(0);" class="list-group-item" onclick="getCollect(73,&#39;usercontent&#39;);">
+	                                  <div class="media-box">
+	                                     <div class="pull-left">
+	                                        <em class="fa fa-pencil-square-o fa-2x fa-fw text-info"></em>
+	                                     </div>
+	                                     <div class="media-box-body clearfix">
+	                                        <p class="m0">修改收藏</p>
+	                                        <p class="m0 text-muted">
+	                                           <small>修改收藏的各种属性</small>
+	                                        </p>
+	                                     </div>
+	                                  </div>
+	                               </a>
+	                               <a href="javascript:void(0);" class="list-group-item" onclick="onCollect(73,&#39;usercontent&#39;);">
+	                                  <div class="media-box">
+	                                     <div class="pull-left">
+	                                        <em class="fa fa-trash fa-2x fa-fw text-danger"></em>
+	                                     </div>
+	                                     <div class="media-box-body clearfix">
+	                                        <p class="m0">删除</p>
+	                                        <p class="m0 text-muted">
+	                                           <small>该分享会永久删除</small>
+	                                        </p>
+	                                     </div>
+	                                  </div>
+	                               </a>
+	                            </div>
+	                         </li>
+	                      </ul>
+	                   </div>
+	                   <div class="m0">
+	                      <a href="javascript:void(0);" class="text-muted" onclick="locationUrl(&#39;/user/1/0&#39;,&#39;&#39;);">DOUBLE</a>
+	                      <a class="deco-none" title="设为私密" href="javascript:void(0);" id="private73" style="display:inline-block" onclick="changePrivacy(73,&#39;PRIVATE&#39;);">
+	                         <span class="fa fa-lock" style="color: #eee;"></span>
+	                               </a>
+	                               <a class="deco-none" title="设为公开" href="javascript:void(0);" id="public73" style="display:none" onclick="changePrivacy(73,&#39;PUBLIC&#39;);">
+	                                  <span class="fa fa-lock text-warning"></span>
+	                               </a>
+	                               <small class="ml-sm text-muted">22个小时前</small>
+	                            </div>
+	                         </div>
+	                      </div>
+	                      <div class="m0">jersey使用指南 - 简书</div>
+	                      <div class="media resource-card-thumbnail">
+	                         <a class="pull-left" target="_blank" href="http://www.jianshu.com/p/15c32cb52da1">
+	                            <div class="media-object resource-card-image" style="background-image:url(http://cdn-qn0.jianshu.io/assets/web/logo-58fd04f6f0de908401aa561cda6a0688.png)"></div>
+	                         </a>
+	                         <div class="media-body">
+	                            <h4 class="visible-xs media-heading resource-card-title-xs">
+	                               <a target="_blank" href="http://www.jianshu.com/p/15c32cb52da1">jersey使用指南 - 简书</a>
+	                            </h4>
+	                            <h3 class="hidden-xs media-heading resource-card-title">
+	                               <a target="_blank" href="http://www.jianshu.com/p/15c32cb52da1">jersey使用指南 - 简书</a>
+	                            </h3>
+	                            <div class="hidden-xs resource-card-content">
+	                               <p>jersey是基于Java的一个轻量级RESTful风格的WebServices框架。官网引入使用maven，在pom.xml中加入：&amp;lt;!--Jersey--&amp;gt;&amp;lt;dependency&amp;gt;&amp;lt;groupId&amp;gt;org.gl...</p>
+	                            </div>
+	                         </div>
+	                      </div>
+	                      <div class="m0">
+	                        <span class="icon-folder mr-sm"></span>
+	                        <a href="javascript:void(0);" class="normal-color-a ng-binding" onclick="locationUrl(&#39;/standard/15/1&#39;,&#39;15&#39;);">架构之路</a>
+	                        <div class="pull-right hidden-xxs">
+	                           <small>
+	                              <!-- <a class="sharing-action-button">
+	                                 <span class="fa fa-share-alt"></span>
+	                                 	分享
+	                              </a>
+	                               <if  th:id="'likel' + ${collect.id}"  th:style="'display:' + @{(${collect.Praise} ? 'none' : 'inline-block')} + ''">
+	   |
+	</if>  -->
+	                              <a class="sharing-action-button" id="like73" style="display:inline-block" onclick="changeLike(73);">
+	                                 <span class="fa fa-thumbs-o-up"></span>
+	                                 <show id="likeS73">点赞(0)</show>
+	                              </a>
+	       <!--                         <if th:id="'unlikel' + ${collect.id}"  th:style="'display:' + @{(${collect.Praise} ? 'inline-block' : 'none')}+ ''" >
+	   |
+	</if>  -->
+	                              <a class="sharing-action-button" id="unlike73" style="display:none" onclick="changeLike(73);">
+	                                 <span class="fa fa-thumbs-up"></span>
+	                              	 <show id="unlikeS73">取消点赞(0)</show>
+	                              </a>
+	                              <input type="hidden" name="praiseC" id="praiseC73" value="0">
+	                              <input type="hidden" name="commentC" id="commentC73" value="0">
+	                              |
+	                              <a class="sharing-action-button btn-comment" href="javascript:void(0);" onclick="switchComment(73);">
+	                                 <span class="fa fa-comment-o"></span>
+	                                 <show id="commentS73">评论(0)</show>
+	                              </a>
+	
+	                              
+	                           </small>
+	                        </div>
+	                     </div>
+	                     <div class="collapse" id="collapse73">
+                             <comments id="commentList73"></comments>
+                             <div class="media p0" id="comment73">
+                                <div class="media-body">
+                                   <form>
+                                      <div class="input-group">
+                                         <input type="text" placeholder="输入评论..." class="form-control" id="commentContent73">
+                                         <span class="input-group-btn">
+                                            <button class="btn btn-default" type="button" onclick="comment(73);">发送</button>
+                                         </span>
+                                      </div>
+                                   </form>
+                                </div>
+                             </div>
+                          </div>
+	                   </div>
+	                </div>
+	             </div>
+	          </li>
+	 <li>
+	    <a href="javascript:void(0);" class="hidden-xs timeline-badge sharing-user-avatar" style="background-image:url(./index/home/b9bbc281-d2e5-4582-92c0-a9dd4c64d5a9.png)"></a>
+	    <div class="timeline-panel">
+	       <div class="popover right">
+	          <div class="arrow"></div>
+	          <div class="popover-content">
+	             <div class="table-grid">
+	                <div class="col">
+	                   <div class="pull-right dropdown dropdown-list">
+	                      <a href="./index/home/home.html" data-toggle="dropdown" class="sharing-more-button">
+	                         <span class="fa fa-angle-down"></span>
+	                      </a>
+	                      <ul class="dropdown-menu animated bounceIn">
+	                         <li>
+	                            <div class="list-group">
+	                               <a href="javascript:void(0);" class="list-group-item" onclick="getCollect(72,&#39;usercontent&#39;);">
+	                                  <div class="media-box">
+	                                     <div class="pull-left">
+	                                        <em class="fa fa-pencil-square-o fa-2x fa-fw text-info"></em>
+	                                     </div>
+	                                     <div class="media-box-body clearfix">
+	                                        <p class="m0">修改收藏</p>
+	                                        <p class="m0 text-muted">
+	                                           <small>修改收藏的各种属性</small>
+	                                        </p>
+	                                     </div>
+	                                  </div>
+	                               </a>
+	                               <a href="javascript:void(0);" class="list-group-item" onclick="onCollect(72,&#39;usercontent&#39;);">
+	                                  <div class="media-box">
+	                                     <div class="pull-left">
+	                                        <em class="fa fa-trash fa-2x fa-fw text-danger"></em>
+	                                     </div>
+	                                     <div class="media-box-body clearfix">
+	                                        <p class="m0">删除</p>
+	                                        <p class="m0 text-muted">
+	                                           <small>该分享会永久删除</small>
+	                                        </p>
+	                                     </div>
+	                                  </div>
+	                               </a>
+	                            </div>
+	                         </li>
+	                      </ul>
+	                   </div>
+	                   <div class="m0">
+	                      <a href="javascript:void(0);" class="text-muted" onclick="locationUrl(&#39;/user/1/0&#39;,&#39;&#39;);">DOUBLE</a>
+	                      <a class="deco-none" title="设为私密" href="javascript:void(0);" id="private72" style="display:inline-block" onclick="changePrivacy(72,&#39;PRIVATE&#39;);">
+	                         <span class="fa fa-lock" style="color: #eee;"></span>
+	                               </a>
+	                               <a class="deco-none" title="设为公开" href="javascript:void(0);" id="public72" style="display:none" onclick="changePrivacy(72,&#39;PUBLIC&#39;);">
+	                                  <span class="fa fa-lock text-warning"></span>
+	                               </a>
+	                               <small class="ml-sm text-muted">22个小时前</small>
+	                            </div>
+	                         </div>
+	                      </div>
+	                      <div class="m0">【面试总结 —— 高级JAVA工程师】-CSDN论坛-CSDN.NET-中国最大的IT技术社区</div>
+	                      <div class="media resource-card-thumbnail">
+	                         <a class="pull-left" target="_blank" href="http://bbs.csdn.net/topics/391909962">
+	                            <div class="media-object resource-card-image" style="background-image:url(http://bbs.csdn.net/assets/ico_set.gif)"></div>
+	                         </a>
+	                         <div class="media-body">
+	                            <h4 class="visible-xs media-heading resource-card-title-xs">
+	                               <a target="_blank" href="http://bbs.csdn.net/topics/391909962">【面试总结 —— 高级JAVA工程师】-CSDN论坛-CSDN.NET-中国最大的IT技术社区</a>
+	                            </h4>
+	                            <h3 class="hidden-xs media-heading resource-card-title">
+	                               <a target="_blank" href="http://bbs.csdn.net/topics/391909962">【面试总结 —— 高级JAVA工程师】-CSDN论坛-CSDN.NET-中国最大的IT技术社区</a>
+	                            </h3>
+	                            <div class="hidden-xs resource-card-content">
+	                               <p>【面试总结 —— 高级JAVA工程师】-CSDN论坛-CSDN.NET-中国最大的IT技术社区</p>
+	                            </div>
+	                         </div>
+	                      </div>
+	                      <div class="m0">
+	                        <span class="icon-folder mr-sm"></span>
+	                        <a href="javascript:void(0);" class="normal-color-a ng-binding" onclick="locationUrl(&#39;/standard/15/1&#39;,&#39;15&#39;);">架构之路</a>
+	                        <div class="pull-right hidden-xxs">
+	                           <small>
+	                              <!-- <a class="sharing-action-button">
+	                                 <span class="fa fa-share-alt"></span>
+	                                 	分享
+	                              </a>
+	                               <if  th:id="'likel' + ${collect.id}"  th:style="'display:' + @{(${collect.Praise} ? 'none' : 'inline-block')} + ''">
+	   |
+	</if>  -->
+	                              <a class="sharing-action-button" id="like72" style="display:inline-block" onclick="changeLike(72);">
+	                                 <span class="fa fa-thumbs-o-up"></span>
+	                                 <show id="likeS72">点赞(0)</show>
+	                              </a>
+	       <!--                         <if th:id="'unlikel' + ${collect.id}"  th:style="'display:' + @{(${collect.Praise} ? 'inline-block' : 'none')}+ ''" >
+	   |
+	</if>  -->
+	                              <a class="sharing-action-button" id="unlike72" style="display:none" onclick="changeLike(72);">
+	                                 <span class="fa fa-thumbs-up"></span>
+	                              	 <show id="unlikeS72">取消点赞(0)</show>
+	                              </a>
+	                              <input type="hidden" name="praiseC" id="praiseC72" value="0">
+	                              <input type="hidden" name="commentC" id="commentC72" value="0">
+	                              |
+	                              <a class="sharing-action-button btn-comment" href="javascript:void(0);" onclick="switchComment(72);">
+	                                 <span class="fa fa-comment-o"></span>
+	                                 <show id="commentS72">评论(0)</show>
+	                              </a>
+	
+	                              
+	                           </small>
+	                        </div>
+	                     </div>
+	                     <div class="collapse" id="collapse72">
+                             <comments id="commentList72"></comments>
+                             <div class="media p0" id="comment72">
+                                <div class="media-body">
+                                   <form>
+                                      <div class="input-group">
+                                         <input type="text" placeholder="输入评论..." class="form-control" id="commentContent72">
+                                         <span class="input-group-btn">
+                                            <button class="btn btn-default" type="button" onclick="comment(72);">发送</button>
+                                         </span>
+                                      </div>
+                                   </form>
+                                </div>
+                             </div>
+                          </div>
+	                   </div>
+	                </div>
+	             </div>
+	          </li>
+	 <li>
+	    <a href="javascript:void(0);" class="hidden-xs timeline-badge sharing-user-avatar" style="background-image:url(./index/home/b9bbc281-d2e5-4582-92c0-a9dd4c64d5a9.png)"></a>
+	    <div class="timeline-panel">
+	       <div class="popover right">
+	          <div class="arrow"></div>
+	          <div class="popover-content">
+	             <div class="table-grid">
+	                <div class="col">
+	                   <div class="pull-right dropdown dropdown-list">
+	                      <a href="./index/home/home.html" data-toggle="dropdown" class="sharing-more-button">
+	                         <span class="fa fa-angle-down"></span>
+	                      </a>
+	                      <ul class="dropdown-menu animated bounceIn">
+	                         <li>
+	                            <div class="list-group">
+	                               <a href="javascript:void(0);" class="list-group-item" onclick="getCollect(71,&#39;usercontent&#39;);">
+	                                  <div class="media-box">
+	                                     <div class="pull-left">
+	                                        <em class="fa fa-pencil-square-o fa-2x fa-fw text-info"></em>
+	                                     </div>
+	                                     <div class="media-box-body clearfix">
+	                                        <p class="m0">修改收藏</p>
+	                                        <p class="m0 text-muted">
+	                                           <small>修改收藏的各种属性</small>
+	                                        </p>
+	                                     </div>
+	                                  </div>
+	                               </a>
+	                               <a href="javascript:void(0);" class="list-group-item" onclick="onCollect(71,&#39;usercontent&#39;);">
+	                                  <div class="media-box">
+	                                     <div class="pull-left">
+	                                        <em class="fa fa-trash fa-2x fa-fw text-danger"></em>
+	                                     </div>
+	                                     <div class="media-box-body clearfix">
+	                                        <p class="m0">删除</p>
+	                                        <p class="m0 text-muted">
+	                                           <small>该分享会永久删除</small>
+	                                        </p>
+	                                     </div>
+	                                  </div>
+	                               </a>
+	                            </div>
+	                         </li>
+	                      </ul>
+	                   </div>
+	                   <div class="m0">
+	                      <a href="javascript:void(0);" class="text-muted" onclick="locationUrl(&#39;/user/1/0&#39;,&#39;&#39;);">DOUBLE</a>
+	                      <a class="deco-none" title="设为私密" href="javascript:void(0);" id="private71" style="display:inline-block" onclick="changePrivacy(71,&#39;PRIVATE&#39;);">
+	                         <span class="fa fa-lock" style="color: #eee;"></span>
+	                               </a>
+	                               <a class="deco-none" title="设为公开" href="javascript:void(0);" id="public71" style="display:none" onclick="changePrivacy(71,&#39;PUBLIC&#39;);">
+	                                  <span class="fa fa-lock text-warning"></span>
+	                               </a>
+	                               <small class="ml-sm text-muted">22个小时前</small>
+	                            </div>
+	                         </div>
+	                      </div>
+	                      <div class="m0">Redis 缓存过期导致并发请求穿透至数据库 - V2EX</div>
+	                      <div class="media resource-card-thumbnail">
+	                         <a class="pull-left" target="_blank" href="https://www.v2ex.com/t/301313">
+	                            <div class="media-object resource-card-image" style="background-image:url(http://cdn.v2ex.co/site/logo@2x.png?m=1346064962)"></div>
+	                         </a>
+	                         <div class="media-body">
+	                            <h4 class="visible-xs media-heading resource-card-title-xs">
+	                               <a target="_blank" href="https://www.v2ex.com/t/301313">Redis 缓存过期导致并发请求穿透至数据库 - V2EX</a>
+	                            </h4>
+	                            <h3 class="hidden-xs media-heading resource-card-title">
+	                               <a target="_blank" href="https://www.v2ex.com/t/301313">Redis 缓存过期导致并发请求穿透至数据库 - V2EX</a>
+	                            </h3>
+	                            <div class="hidden-xs resource-card-content">
+	                               <p>问与答 - @Eshan - 原创作品，转载请注明出处： http://api.crap.cn/index.do#/top/webPage/detail/ARTICLE/7754a002-6400-442d-8dc8-e76e72</p>
+	                            </div>
+	                         </div>
+	                      </div>
+	                      <div class="m0">
+	                        <span class="icon-folder mr-sm"></span>
+	                        <a href="javascript:void(0);" class="normal-color-a ng-binding" onclick="locationUrl(&#39;/standard/15/1&#39;,&#39;15&#39;);">架构之路</a>
+	                        <div class="pull-right hidden-xxs">
+	                           <small>
+	                              <!-- <a class="sharing-action-button">
+	                                 <span class="fa fa-share-alt"></span>
+	                                 	分享
+	                              </a>
+	                               <if  th:id="'likel' + ${collect.id}"  th:style="'display:' + @{(${collect.Praise} ? 'none' : 'inline-block')} + ''">
+	   |
+	</if>  -->
+	                              <a class="sharing-action-button" id="like71" style="display:inline-block" onclick="changeLike(71);">
+	                                 <span class="fa fa-thumbs-o-up"></span>
+	                                 <show id="likeS71">点赞(0)</show>
+	                              </a>
+	       <!--                         <if th:id="'unlikel' + ${collect.id}"  th:style="'display:' + @{(${collect.Praise} ? 'inline-block' : 'none')}+ ''" >
+	   |
+	</if>  -->
+	                              <a class="sharing-action-button" id="unlike71" style="display:none" onclick="changeLike(71);">
+	                                 <span class="fa fa-thumbs-up"></span>
+	                              	 <show id="unlikeS71">取消点赞(0)</show>
+	                              </a>
+	                              <input type="hidden" name="praiseC" id="praiseC71" value="0">
+	                              <input type="hidden" name="commentC" id="commentC71" value="2">
+	                              |
+	                              <a class="sharing-action-button btn-comment" href="javascript:void(0);" onclick="switchComment(71);">
+	                                 <span class="fa fa-comment-o"></span>
+	                                 <show id="commentS71">评论(2)</show>
+	                              </a>
+	
+	                              
+	                           </small>
+	                        </div>
+	                     </div>
+	                     <div class="collapse" id="collapse71">
+                             <comments id="commentList71"></comments>
+                             <div class="media p0" id="comment71">
+                                <div class="media-body">
+                                   <form>
+                                      <div class="input-group">
+                                         <input type="text" placeholder="输入评论..." class="form-control" id="commentContent71">
+                                         <span class="input-group-btn">
+                                            <button class="btn btn-default" type="button" onclick="comment(71);">发送</button>
+                                         </span>
+                                      </div>
+                                   </form>
+                                </div>
+                             </div>
+                          </div>
+	                   </div>
+	                </div>
+	             </div>
+	          </li>
+	 <li>
+	    <a href="javascript:void(0);" class="hidden-xs timeline-badge sharing-user-avatar" style="background-image:url(./index/home/b9bbc281-d2e5-4582-92c0-a9dd4c64d5a9.png)"></a>
+	    <div class="timeline-panel">
+	       <div class="popover right">
+	          <div class="arrow"></div>
+	          <div class="popover-content">
+	             <div class="table-grid">
+	                <div class="col">
+	                   <div class="pull-right dropdown dropdown-list">
+	                      <a href="./index/home/home.html" data-toggle="dropdown" class="sharing-more-button">
+	                         <span class="fa fa-angle-down"></span>
+	                      </a>
+	                      <ul class="dropdown-menu animated bounceIn">
+	                         <li>
+	                            <div class="list-group">
+	                               <a href="javascript:void(0);" class="list-group-item" onclick="getCollect(70,&#39;usercontent&#39;);">
+	                                  <div class="media-box">
+	                                     <div class="pull-left">
+	                                        <em class="fa fa-pencil-square-o fa-2x fa-fw text-info"></em>
+	                                     </div>
+	                                     <div class="media-box-body clearfix">
+	                                        <p class="m0">修改收藏</p>
+	                                        <p class="m0 text-muted">
+	                                           <small>修改收藏的各种属性</small>
+	                                        </p>
+	                                     </div>
+	                                  </div>
+	                               </a>
+	                               <a href="javascript:void(0);" class="list-group-item" onclick="onCollect(70,&#39;usercontent&#39;);">
+	                                  <div class="media-box">
+	                                     <div class="pull-left">
+	                                        <em class="fa fa-trash fa-2x fa-fw text-danger"></em>
+	                                     </div>
+	                                     <div class="media-box-body clearfix">
+	                                        <p class="m0">删除</p>
+	                                        <p class="m0 text-muted">
+	                                           <small>该分享会永久删除</small>
+	                                        </p>
+	                                     </div>
+	                                  </div>
+	                               </a>
+	                            </div>
+	                         </li>
+	                      </ul>
+	                   </div>
+	                   <div class="m0">
+	                      <a href="javascript:void(0);" class="text-muted" onclick="locationUrl(&#39;/user/1/0&#39;,&#39;&#39;);">DOUBLE</a>
+	                      <a class="deco-none" title="设为私密" href="javascript:void(0);" id="private70" style="display:inline-block" onclick="changePrivacy(70,&#39;PRIVATE&#39;);">
+	                         <span class="fa fa-lock" style="color: #eee;"></span>
+	                               </a>
+	                               <a class="deco-none" title="设为公开" href="javascript:void(0);" id="public70" style="display:none" onclick="changePrivacy(70,&#39;PUBLIC&#39;);">
+	                                  <span class="fa fa-lock text-warning"></span>
+	                               </a>
+	                               <small class="ml-sm text-muted">22个小时前</small>
+	                            </div>
+	                         </div>
+	                      </div>
+	                      <div class="m0">过往记忆</div>
+	                      <div class="media resource-card-thumbnail">
+	                         <a class="pull-left" target="_blank" href="https://www.iteblog.com/">
+	                            <div class="media-object resource-card-image" style="background-image:url(https://www.iteblog.com/wp-content/themes/yusi2.0/img/weixin.gif)"></div>
+	                         </a>
+	                         <div class="media-body">
+	                            <h4 class="visible-xs media-heading resource-card-title-xs">
+	                               <a target="_blank" href="https://www.iteblog.com/">过往记忆</a>
+	                            </h4>
+	                            <h3 class="hidden-xs media-heading resource-card-title">
+	                               <a target="_blank" href="https://www.iteblog.com/">过往记忆</a>
+	                            </h3>
+	                            <div class="hidden-xs resource-card-content">
+	                               <p>专注于Hadoop、Spark、Flink、Hive的那些事、Hive、程序开发、大数据。大数据技术博客，大数据视频教程免费下载，hadoop视频教程免费下载</p>
+	                            </div>
+	                         </div>
+	                      </div>
+	                      <div class="m0">
+	                        <span class="icon-folder mr-sm"></span>
+	                        <a href="javascript:void(0);" class="normal-color-a ng-binding" onclick="locationUrl(&#39;/standard/15/1&#39;,&#39;15&#39;);">架构之路</a>
+	                        <div class="pull-right hidden-xxs">
+	                           <small>
+	                              <!-- <a class="sharing-action-button">
+	                                 <span class="fa fa-share-alt"></span>
+	                                 	分享
+	                              </a>
+	                               <if  th:id="'likel' + ${collect.id}"  th:style="'display:' + @{(${collect.Praise} ? 'none' : 'inline-block')} + ''">
+	   |
+	</if>  -->
+	                              <a class="sharing-action-button" id="like70" style="display:inline-block" onclick="changeLike(70);">
+	                                 <span class="fa fa-thumbs-o-up"></span>
+	                                 <show id="likeS70">点赞(0)</show>
+	                              </a>
+	       <!--                         <if th:id="'unlikel' + ${collect.id}"  th:style="'display:' + @{(${collect.Praise} ? 'inline-block' : 'none')}+ ''" >
+	   |
+	</if>  -->
+	                              <a class="sharing-action-button" id="unlike70" style="display:none" onclick="changeLike(70);">
+	                                 <span class="fa fa-thumbs-up"></span>
+	                              	 <show id="unlikeS70">取消点赞(0)</show>
+	                              </a>
+	                              <input type="hidden" name="praiseC" id="praiseC70" value="0">
+	                              <input type="hidden" name="commentC" id="commentC70" value="0">
+	                              |
+	                              <a class="sharing-action-button btn-comment" href="javascript:void(0);" onclick="switchComment(70);">
+	                                 <span class="fa fa-comment-o"></span>
+	                                 <show id="commentS70">评论(0)</show>
+	                              </a>
+	
+	                              
+	                           </small>
+	                        </div>
+	                     </div>
+	                     <div class="collapse" id="collapse70">
+                             <comments id="commentList70"></comments>
+                             <div class="media p0" id="comment70">
+                                <div class="media-body">
+                                   <form>
+                                      <div class="input-group">
+                                         <input type="text" placeholder="输入评论..." class="form-control" id="commentContent70">
+                                         <span class="input-group-btn">
+                                            <button class="btn btn-default" type="button" onclick="comment(70);">发送</button>
+                                         </span>
+                                      </div>
+                                   </form>
+                                </div>
+                             </div>
+                          </div>
+	                   </div>
+	                </div>
+	             </div>
+	          </li>
+	 <li>
+	    <a href="javascript:void(0);" class="hidden-xs timeline-badge sharing-user-avatar" style="background-image:url(./index/home/b9bbc281-d2e5-4582-92c0-a9dd4c64d5a9.png)"></a>
+	    <div class="timeline-panel">
+	       <div class="popover right">
+	          <div class="arrow"></div>
+	          <div class="popover-content">
+	             <div class="table-grid">
+	                <div class="col">
+	                   <div class="pull-right dropdown dropdown-list">
+	                      <a href="./index/home/home.html" data-toggle="dropdown" class="sharing-more-button">
+	                         <span class="fa fa-angle-down"></span>
+	                      </a>
+	                      <ul class="dropdown-menu animated bounceIn">
+	                         <li>
+	                            <div class="list-group">
+	                               <a href="javascript:void(0);" class="list-group-item" onclick="getCollect(69,&#39;usercontent&#39;);">
+	                                  <div class="media-box">
+	                                     <div class="pull-left">
+	                                        <em class="fa fa-pencil-square-o fa-2x fa-fw text-info"></em>
+	                                     </div>
+	                                     <div class="media-box-body clearfix">
+	                                        <p class="m0">修改收藏</p>
+	                                        <p class="m0 text-muted">
+	                                           <small>修改收藏的各种属性</small>
+	                                        </p>
+	                                     </div>
+	                                  </div>
+	                               </a>
+	                               <a href="javascript:void(0);" class="list-group-item" onclick="onCollect(69,&#39;usercontent&#39;);">
+	                                  <div class="media-box">
+	                                     <div class="pull-left">
+	                                        <em class="fa fa-trash fa-2x fa-fw text-danger"></em>
+	                                     </div>
+	                                     <div class="media-box-body clearfix">
+	                                        <p class="m0">删除</p>
+	                                        <p class="m0 text-muted">
+	                                           <small>该分享会永久删除</small>
+	                                        </p>
+	                                     </div>
+	                                  </div>
+	                               </a>
+	                            </div>
+	                         </li>
+	                      </ul>
+	                   </div>
+	                   <div class="m0">
+	                      <a href="javascript:void(0);" class="text-muted" onclick="locationUrl(&#39;/user/1/0&#39;,&#39;&#39;);">DOUBLE</a>
+	                      <a class="deco-none" title="设为私密" href="javascript:void(0);" id="private69" style="display:inline-block" onclick="changePrivacy(69,&#39;PRIVATE&#39;);">
+	                         <span class="fa fa-lock" style="color: #eee;"></span>
+	                               </a>
+	                               <a class="deco-none" title="设为公开" href="javascript:void(0);" id="public69" style="display:none" onclick="changePrivacy(69,&#39;PUBLIC&#39;);">
+	                                  <span class="fa fa-lock text-warning"></span>
+	                               </a>
+	                               <small class="ml-sm text-muted">22个小时前</small>
+	                            </div>
+	                         </div>
+	                      </div>
+	                      <div class="m0">NetAdvantage for JSF 2007 Vol.2发布_jieforest-ChinaUnix博客</div>
+	                      <div class="media resource-card-thumbnail">
+	                         <a class="pull-left" target="_blank" href="http://blog.chinaunix.net/xmlrpc.php?r=blog/index&uid=301743&cid=182856&pattern=list&page=2">
+	                            <div class="media-object resource-card-image" style="background-image:url(http://blog.chinaunix.net/image/default/1.png)"></div>
+	                         </a>
+	                         <div class="media-body">
+	                            <h4 class="visible-xs media-heading resource-card-title-xs">
+	                               <a target="_blank" href="http://blog.chinaunix.net/xmlrpc.php?r=blog/index&uid=301743&cid=182856&pattern=list&page=2">NetAdvantage for JSF 2007 Vol.2发布_jieforest-ChinaUnix博客</a>
+	                            </h4>
+	                            <h3 class="hidden-xs media-heading resource-card-title">
+	                               <a target="_blank" href="http://blog.chinaunix.net/xmlrpc.php?r=blog/index&uid=301743&cid=182856&pattern=list&page=2">NetAdvantage for JSF 2007 Vol.2发布_jieforest-ChinaUnix博客</a>
+	                            </h3>
+	                            <div class="hidden-xs resource-card-content">
+	                               <p>NetAdvantage for JSF 2007 Vol.2发布NetAdvantage for JSF 2007是一套丰富的、带AJAX功能的JSF组件，用于建立商业级J2EE应用程序。 NetAdvantage for JSF包含了每</p>
+	                            </div>
+	                         </div>
+	                      </div>
+	                      <div class="m0">
+	                        <span class="icon-folder mr-sm"></span>
+	                        <a href="javascript:void(0);" class="normal-color-a ng-binding" onclick="locationUrl(&#39;/standard/15/1&#39;,&#39;15&#39;);">架构之路</a>
+	                        <div class="pull-right hidden-xxs">
+	                           <small>
+	                              <!-- <a class="sharing-action-button">
+	                                 <span class="fa fa-share-alt"></span>
+	                                 	分享
+	                              </a>
+	                               <if  th:id="'likel' + ${collect.id}"  th:style="'display:' + @{(${collect.Praise} ? 'none' : 'inline-block')} + ''">
+	   |
+	</if>  -->
+	                              <a class="sharing-action-button" id="like69" style="display:inline-block" onclick="changeLike(69);">
+	                                 <span class="fa fa-thumbs-o-up"></span>
+	                                 <show id="likeS69">点赞(0)</show>
+	                              </a>
+	       <!--                         <if th:id="'unlikel' + ${collect.id}"  th:style="'display:' + @{(${collect.Praise} ? 'inline-block' : 'none')}+ ''" >
+	   |
+	</if>  -->
+	                              <a class="sharing-action-button" id="unlike69" style="display:none" onclick="changeLike(69);">
+	                                 <span class="fa fa-thumbs-up"></span>
+	                              	 <show id="unlikeS69">取消点赞(0)</show>
+	                              </a>
+	                              <input type="hidden" name="praiseC" id="praiseC69" value="0">
+	                              <input type="hidden" name="commentC" id="commentC69" value="0">
+	                              |
+	                              <a class="sharing-action-button btn-comment" href="javascript:void(0);" onclick="switchComment(69);">
+	                                 <span class="fa fa-comment-o"></span>
+	                                 <show id="commentS69">评论(0)</show>
+	                              </a>
+	
+	                              
+	                           </small>
+	                        </div>
+	                     </div>
+	                     <div class="collapse" id="collapse69">
+                             <comments id="commentList69"></comments>
+                             <div class="media p0" id="comment69">
+                                <div class="media-body">
+                                   <form>
+                                      <div class="input-group">
+                                         <input type="text" placeholder="输入评论..." class="form-control" id="commentContent69">
+                                         <span class="input-group-btn">
+                                            <button class="btn btn-default" type="button" onclick="comment(69);">发送</button>
+                                         </span>
+                                      </div>
+                                   </form>
+                                </div>
+                             </div>
+                          </div>
+	                   </div>
+	                </div>
+	             </div>
+	          </li>
+	        	</ul>
+	        	<!--<button id="loadStandardNoMore" class="mt-lg btn btn-warning btn-block" style="display:none" >没有更多了</button>-->
+             	<!-- <button th:if="${collects.size() == 15}" id="loadStandardMore" class="mt-lg btn btn-primary btn-block" th:onclick="'loadStandardMore();'">加载更多</button> -->
+                <button id="loadStandardMore" class="mt-lg btn btn-primary btn-block" style="display:none;">加载更多</button>
+                <div id="loadingStandard" style="text-align:center;margin:20px;"><img src="./index/home/loading.gif" width="64" height="64"></div>
+                <br>
+                <br>
+                <br>
+	         </div>
+	<div class="col-lg-9 col-md-9 mt" id="simple" style="display: none;">
+	    <div class="btn-group btn-xs mb pull-right" style="margin-top: -25px;">
+	       <a class="btn btn-xs btn-default" id="simpleBtn">
+	          <span class="icon-layers"></span>
+	       </a>
+	       <a class="btn btn-xs btn-default active">
+	          <span class="icon-list"></span>
+	       </a>
+	    </div>
+	      <table class="table">
+		    <tbody id="collectSimpleList">
+		       <tr>
+		          <td>
+		             <a target="_blank" style="font-size:16px;color:#656565;" href="http://javatar.iteye.com/">梁飞的博客 - ITeye技术网站</a>
+		          </td>
+		          <td width="10%" class="text-center">
+		             <img width="35px" height="25px" alt="" src="./index/home/rss.png"></td>
+		          <td width="15%" class="text-center">
+		             <div>
+		                <a href="javascript:void(0);" class="mr" onclick="getCollect(83,&#39;usercontent&#39;);"> <i class="fa fa-pencil"></i>
+		                </a>
+		                <a href="javascript:void(0);" class="ml" onclick="onCollect(83,&#39;usercontent&#39;);"> <i class="fa fa-trash text-danger"></i>
+		                </a>
+		             </div>
+		          </td>
+		       </tr>
+		       <tr>
+		          <td>
+		             <a target="_blank" style="font-size:16px;color:#656565;" href="http://blog.itpub.net/28624388/viewspace-1815701/">Spring 4 + Websocket + Stomp + ActimeMQ 实现消息推送-百联达-ITPUB博客</a>
+		          </td>
+		          <td width="10%" class="text-center">
+		             <img width="35px" height="25px" alt="" src="./index/home/1.png"></td>
+		          <td width="15%" class="text-center">
+		             <div>
+		                <a href="javascript:void(0);" class="mr" onclick="getCollect(82,&#39;usercontent&#39;);"> <i class="fa fa-pencil"></i>
+		                </a>
+		                <a href="javascript:void(0);" class="ml" onclick="onCollect(82,&#39;usercontent&#39;);"> <i class="fa fa-trash text-danger"></i>
+		                </a>
+		             </div>
+		          </td>
+		       </tr>
+		       <tr>
+		          <td>
+		             <a target="_blank" style="font-size:16px;color:#656565;" href="http://blog.csdn.net/duyuanhai/article/details/46788389">Netty简单介绍和例子 - 小海的专栏 - 博客频道 - CSDN.NET</a>
+		          </td>
+		          <td width="10%" class="text-center">
+		             <img width="35px" height="25px" alt="" src="./index/home/ico_list.gif"></td>
+		          <td width="15%" class="text-center">
+		             <div>
+		                <a href="javascript:void(0);" class="mr" onclick="getCollect(81,&#39;usercontent&#39;);"> <i class="fa fa-pencil"></i>
+		                </a>
+		                <a href="javascript:void(0);" class="ml" onclick="onCollect(81,&#39;usercontent&#39;);"> <i class="fa fa-trash text-danger"></i>
+		                </a>
+		             </div>
+		          </td>
+		       </tr>
+		       <tr>
+		          <td>
+		             <a target="_blank" style="font-size:16px;color:#656565;" href="https://github.com/bboyjing/sample/blob/master/blahblah.txt">sample/blahblah.txt at master · bboyjing/sample · GitHub</a>
+		          </td>
+		          <td width="10%" class="text-center">
+		             <img width="35px" height="25px" alt="" src="./index/home/octocat-spinner-32-EAF2F5.gif"></td>
+		          <td width="15%" class="text-center">
+		             <div>
+		                <a href="javascript:void(0);" class="mr" onclick="getCollect(80,&#39;usercontent&#39;);"> <i class="fa fa-pencil"></i>
+		                </a>
+		                <a href="javascript:void(0);" class="ml" onclick="onCollect(80,&#39;usercontent&#39;);"> <i class="fa fa-trash text-danger"></i>
+		                </a>
+		             </div>
+		          </td>
+		       </tr>
+		       <tr>
+		          <td>
+		             <a target="_blank" style="font-size:16px;color:#656565;" href="http://blog.csdn.net/lovelong8808/article/details/52212566">Java Websocket实例【项目实战系列】 - 一不小心的程序员 - 博客频道 - CSDN.NET</a>
+		          </td>
+		          <td width="10%" class="text-center">
+		             <img width="35px" height="25px" alt="" src="./index/home/ico_list.gif"></td>
+		          <td width="15%" class="text-center">
+		             <div>
+		                <a href="javascript:void(0);" class="mr" onclick="getCollect(79,&#39;usercontent&#39;);"> <i class="fa fa-pencil"></i>
+		                </a>
+		                <a href="javascript:void(0);" class="ml" onclick="onCollect(79,&#39;usercontent&#39;);"> <i class="fa fa-trash text-danger"></i>
+		                </a>
+		             </div>
+		          </td>
+		       </tr>
+		       <tr>
+		          <td>
+		             <a target="_blank" style="font-size:16px;color:#656565;" href="http://www.niaogebiji.com/article-6788-1.html">别再吐槽12306了，有本事你来写架构 - 推广 鸟哥笔记</a>
+		          </td>
+		          <td width="10%" class="text-center">
+		             <img width="35px" height="25px" alt="" src="./index/home/ngbj_xs.png"></td>
+		          <td width="15%" class="text-center">
+		             <div>
+		                <a href="javascript:void(0);" class="mr" onclick="getCollect(78,&#39;usercontent&#39;);"> <i class="fa fa-pencil"></i>
+		                </a>
+		                <a href="javascript:void(0);" class="ml" onclick="onCollect(78,&#39;usercontent&#39;);"> <i class="fa fa-trash text-danger"></i>
+		                </a>
+		             </div>
+		          </td>
+		       </tr>
+		       <tr>
+		          <td>
+		             <a target="_blank" style="font-size:16px;color:#656565;" href="http://ifeve.com/getting-started-with-stom-index/">《Storm入门》中文版 | 并发编程网 – ifeve.com</a>
+		          </td>
+		          <td width="10%" class="text-center">
+		             <img width="35px" height="25px" alt="" src="./index/home/storm.jpg"></td>
+		          <td width="15%" class="text-center">
+		             <div>
+		                <a href="javascript:void(0);" class="mr" onclick="getCollect(77,&#39;usercontent&#39;);"> <i class="fa fa-pencil"></i>
+		                </a>
+		                <a href="javascript:void(0);" class="ml" onclick="onCollect(77,&#39;usercontent&#39;);"> <i class="fa fa-trash text-danger"></i>
+		                </a>
+		             </div>
+		          </td>
+		       </tr>
+		       <tr>
+		          <td>
+		             <a target="_blank" style="font-size:16px;color:#656565;" href="http://app.xunjiepdf.com/word2pdf">Word转PDF在线免费 – Word在线转换成PDF - 迅捷PDF转换器在线免费版</a>
+		          </td>
+		          <td width="10%" class="text-center">
+		             <img width="35px" height="25px" alt="" src="./index/home/lianxi-02.png"></td>
+		          <td width="15%" class="text-center">
+		             <div>
+		                <a href="javascript:void(0);" class="mr" onclick="getCollect(76,&#39;usercontent&#39;);"> <i class="fa fa-pencil"></i>
+		                </a>
+		                <a href="javascript:void(0);" class="ml" onclick="onCollect(76,&#39;usercontent&#39;);"> <i class="fa fa-trash text-danger"></i>
+		                </a>
+		             </div>
+		          </td>
+		       </tr>
+		       <tr>
+		          <td>
+		             <a target="_blank" style="font-size:16px;color:#656565;" href="http://doc.okbase.net/congcong68/archive/112508.html">Dubbo与Zookeeper、SpringMVC整合和使用（负载均衡、容错） - 好库文摘</a>
+		          </td>
+		          <td width="10%" class="text-center">
+		             <img width="35px" height="25px" alt="" src="./index/home/dlogtitle.png"></td>
+		          <td width="15%" class="text-center">
+		             <div>
+		                <a href="javascript:void(0);" class="mr" onclick="getCollect(75,&#39;usercontent&#39;);"> <i class="fa fa-pencil"></i>
+		                </a>
+		                <a href="javascript:void(0);" class="ml" onclick="onCollect(75,&#39;usercontent&#39;);"> <i class="fa fa-trash text-danger"></i>
+		                </a>
+		             </div>
+		          </td>
+		       </tr>
+		       <tr>
+		          <td>
+		             <a target="_blank" style="font-size:16px;color:#656565;" href="http://www.cnblogs.com/seesea125/archive/2012/03/30/2425281.html">WEB架构师成长之路之一-走正确的路 - 赵学智 - 博客园</a>
+		          </td>
+		          <td width="10%" class="text-center">
+		             <img width="35px" height="25px" alt="" src="./index/home/logo.gif"></td>
+		          <td width="15%" class="text-center">
+		             <div>
+		                <a href="javascript:void(0);" class="mr" onclick="getCollect(74,&#39;usercontent&#39;);"> <i class="fa fa-pencil"></i>
+		                </a>
+		                <a href="javascript:void(0);" class="ml" onclick="onCollect(74,&#39;usercontent&#39;);"> <i class="fa fa-trash text-danger"></i>
+		                </a>
+		             </div>
+		          </td>
+		       </tr>
+		       <tr>
+		          <td>
+		             <a target="_blank" style="font-size:16px;color:#656565;" href="http://www.jianshu.com/p/15c32cb52da1">jersey使用指南 - 简书</a>
+		          </td>
+		          <td width="10%" class="text-center">
+		             <img width="35px" height="25px" alt="" src="./index/home/logo-58fd04f6f0de908401aa561cda6a0688.png"></td>
+		          <td width="15%" class="text-center">
+		             <div>
+		                <a href="javascript:void(0);" class="mr" onclick="getCollect(73,&#39;usercontent&#39;);"> <i class="fa fa-pencil"></i>
+		                </a>
+		                <a href="javascript:void(0);" class="ml" onclick="onCollect(73,&#39;usercontent&#39;);"> <i class="fa fa-trash text-danger"></i>
+		                </a>
+		             </div>
+		          </td>
+		       </tr>
+		       <tr>
+		          <td>
+		             <a target="_blank" style="font-size:16px;color:#656565;" href="http://bbs.csdn.net/topics/391909962">【面试总结 —— 高级JAVA工程师】-CSDN论坛-CSDN.NET-中国最大的IT技术社区</a>
+		          </td>
+		          <td width="10%" class="text-center">
+		             <img width="35px" height="25px" alt="" src="./index/home/ico_set.gif"></td>
+		          <td width="15%" class="text-center">
+		             <div>
+		                <a href="javascript:void(0);" class="mr" onclick="getCollect(72,&#39;usercontent&#39;);"> <i class="fa fa-pencil"></i>
+		                </a>
+		                <a href="javascript:void(0);" class="ml" onclick="onCollect(72,&#39;usercontent&#39;);"> <i class="fa fa-trash text-danger"></i>
+		                </a>
+		             </div>
+		          </td>
+		       </tr>
+		       <tr>
+		          <td>
+		             <a target="_blank" style="font-size:16px;color:#656565;" href="https://www.v2ex.com/t/301313">Redis 缓存过期导致并发请求穿透至数据库 - V2EX</a>
+		          </td>
+		          <td width="10%" class="text-center">
+		             <img width="35px" height="25px" alt="" src="./index/home/logo@2x.png"></td>
+		          <td width="15%" class="text-center">
+		             <div>
+		                <a href="javascript:void(0);" class="mr" onclick="getCollect(71,&#39;usercontent&#39;);"> <i class="fa fa-pencil"></i>
+		                </a>
+		                <a href="javascript:void(0);" class="ml" onclick="onCollect(71,&#39;usercontent&#39;);"> <i class="fa fa-trash text-danger"></i>
+		                </a>
+		             </div>
+		          </td>
+		       </tr>
+		       <tr>
+		          <td>
+		             <a target="_blank" style="font-size:16px;color:#656565;" href="https://www.iteblog.com/">过往记忆</a>
+		          </td>
+		          <td width="10%" class="text-center">
+		             <img width="35px" height="25px" alt="" src="https://www.iteblog.com/wp-content/themes/yusi2.0/img/weixin.gif"></td>
+		          <td width="15%" class="text-center">
+		             <div>
+		                <a href="javascript:void(0);" class="mr" onclick="getCollect(70,&#39;usercontent&#39;);"> <i class="fa fa-pencil"></i>
+		                </a>
+		                <a href="javascript:void(0);" class="ml" onclick="onCollect(70,&#39;usercontent&#39;);"> <i class="fa fa-trash text-danger"></i>
+		                </a>
+		             </div>
+		          </td>
+		       </tr>
+		       <tr>
+		          <td>
+		             <a target="_blank" style="font-size:16px;color:#656565;" href="http://blog.chinaunix.net/xmlrpc.php?r=blog/index&uid=301743&cid=182856&pattern=list&page=2">NetAdvantage for JSF 2007 Vol.2发布_jieforest-ChinaUnix博客</a>
+		          </td>
+		          <td width="10%" class="text-center">
+		             <img width="35px" height="25px" alt="" src="./index/home/1(1).png"></td>
+		          <td width="15%" class="text-center">
+		             <div>
+		                <a href="javascript:void(0);" class="mr" onclick="getCollect(69,&#39;usercontent&#39;);"> <i class="fa fa-pencil"></i>
+		                </a>
+		                <a href="javascript:void(0);" class="ml" onclick="onCollect(69,&#39;usercontent&#39;);"> <i class="fa fa-trash text-danger"></i>
+		                </a>
+		             </div>
+		          </td>
+		       </tr>
+		    </tbody>
+	 	</table>
+	 <!-- <button id="loadSimpleNoMore" class="mt-lg btn btn-warning btn-block" style="display:none" >没有更多了</button> -->
+     <!-- <button th:if="${collects.size() == 15}" id="loadSimpleMore" class="mt-lg btn btn-primary btn-block" th:onclick="'loadSimpleMore();'">加载更多</button> -->
+     <button id="loadSimpleMore" class="mt-lg btn btn-primary btn-block" style="display:none;">加载更多</button>
+     <div id="loadingSimple" style="text-align:center;margin:20px;display:none;"><img src="./index/home/loading.gif" width="64" height="64"></div>
+     <br>
+     <br>
+     <br>
+	 <input type="hidden" name="forward" id="forward" value="/usercontent/1/0">
+	 <input type="hidden" id="userId" value="1">
+	 <input type="hidden" name="pageType" id="pageType" value="myself">
+	 
+	 <input type="hidden" id="userContent" value="usercontent">
+	 <input type="hidden" id="userFavoritesId" value="0">
+	 <input type="hidden" id="loginUser" value="1">
+	</div>
+</div>
+                     <div class="col-lg-3 col-md-3">
+                        <div class="panel panel-default">
+                           <div class="panel-heading text-center">TA的收藏夹</div>
+                           <div class="list-group" id="userFavorites">
+                              <a id="userAll" href="javascript:void(0);" class="media p mt0 list-group-item active" onclick="userLocationUrl(&#39;/usercontent/1/0&#39;,&#39;userAll&#39;);">
+                                 <span class="media-body">
+                                    <span class="media-heading" id="allFavorites"><strong>全部收藏</strong><small>81个收藏</small></span>
+                                 </span>
+                              </a>
+                           </div><div name="userFavDiv" class="list-group"><a id="user1" href="javascript:void(0);" class="media p mt0 list-group-item" onclick="userLocationUrl(&#39;/usercontent/1/1&#39;,&#39;user1&#39;);"><span class="media-body"><span class="media-heading"> <strong>后端技术</strong><small>1个收藏</small></span></span></a></div><div name="userFavDiv" class="list-group"><a id="user6" href="javascript:void(0);" class="media p mt0 list-group-item" onclick="userLocationUrl(&#39;/usercontent/1/6&#39;,&#39;user6&#39;);"><span class="media-body"><span class="media-heading"> <strong>MAVEN私服</strong><small>5个收藏</small></span></span></a></div><div name="userFavDiv" class="list-group"><a id="user7" href="javascript:void(0);" class="media p mt0 list-group-item" onclick="userLocationUrl(&#39;/usercontent/1/7&#39;,&#39;user7&#39;);"><span class="media-body"><span class="media-heading"> <strong>LINUX</strong><small>3个收藏</small></span></span></a></div><div name="userFavDiv" class="list-group"><a id="user8" href="javascript:void(0);" class="media p mt0 list-group-item" onclick="userLocationUrl(&#39;/usercontent/1/8&#39;,&#39;user8&#39;);"><span class="media-body"><span class="media-heading"> <strong>Spring Boot</strong><small>1个收藏</small></span></span></a></div><div name="userFavDiv" class="list-group"><a id="user9" href="javascript:void(0);" class="media p mt0 list-group-item" onclick="userLocationUrl(&#39;/usercontent/1/9&#39;,&#39;user9&#39;);"><span class="media-body"><span class="media-heading"> <strong>Jquery插件</strong><small>2个收藏</small></span></span></a></div><div name="userFavDiv" class="list-group"><a id="user10" href="javascript:void(0);" class="media p mt0 list-group-item" onclick="userLocationUrl(&#39;/usercontent/1/10&#39;,&#39;user10&#39;);"><span class="media-body"><span class="media-heading"> <strong>redis</strong><small>7个收藏</small></span></span></a></div><div name="userFavDiv" class="list-group"><a id="user11" href="javascript:void(0);" class="media p mt0 list-group-item" onclick="userLocationUrl(&#39;/usercontent/1/11&#39;,&#39;user11&#39;);"><span class="media-body"><span class="media-heading"> <strong>TOMCAT</strong><small>2个收藏</small></span></span></a></div><div name="userFavDiv" class="list-group"><a id="user12" href="javascript:void(0);" class="media p mt0 list-group-item" onclick="userLocationUrl(&#39;/usercontent/1/12&#39;,&#39;user12&#39;);"><span class="media-body"><span class="media-heading"> <strong>在线学习</strong><small>5个收藏</small></span></span></a></div><div name="userFavDiv" class="list-group"><a id="user13" href="javascript:void(0);" class="media p mt0 list-group-item" onclick="userLocationUrl(&#39;/usercontent/1/13&#39;,&#39;user13&#39;);"><span class="media-body"><span class="media-heading"> <strong>helper</strong><small>3个收藏</small></span></span></a></div><div name="userFavDiv" class="list-group"><a id="user14" href="javascript:void(0);" class="media p mt0 list-group-item" onclick="userLocationUrl(&#39;/usercontent/1/14&#39;,&#39;user14&#39;);"><span class="media-body"><span class="media-heading"> <strong>开源框架</strong><small>1个收藏</small></span></span></a></div><div name="userFavDiv" class="list-group"><a id="user15" href="javascript:void(0);" class="media p mt0 list-group-item" onclick="userLocationUrl(&#39;/usercontent/1/15&#39;,&#39;user15&#39;);"><span class="media-body"><span class="media-heading"> <strong>架构之路</strong><small>51个收藏</small></span></span></a></div>                           
+                        </div>
+                        <div class="panel panel-default">
+                           <div class="panel-heading text-center">关注</div>
+                           
+                        </div>
+                        <div class="panel panel-default">
+                           <div class="panel-heading text-center">粉丝</div>
+                           
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <input type="hidden" name="collectId" id="collectId">
+            <input type="hidden" id="userId" value="1">
+            <input type="hidden" id="myself" value="YES">
+         </div>
+     
+	
+	
+    </div>
+	<div style="z-index:1050;">
+	 <div id="modal-changeSharing" class="modal fade">
+		 <div class="modal-dialog wd-xl">
+		   
+   <div class="wrapper">
+      <div class="block-center mt-xl wd-xl">
+         <div class="panel panel-dark panel-flat">
+            <div class="panel-heading text-center">
+               <button style="color:#fff;" type="button" data-dismiss="modal" class="close">
+                 <span>×</span>
+               </button>
+               <a href="./" style="color:#fff;">Favorites</a>
+            </div>
+            <div class="panel-body">
+              <form id="collect-form" class="form-horizontal" onsubmit="return false">
+               <div id="show2" style="display:none;">
+               		<div class="mb">
+                     标题
+                     <textarea name="title" id="ctitle" class="form-control" cols="30" rows="2" placeholder="留空则自动抓取"></textarea>
+                  </div>
+                  <div class="mb">
+                     简介
+                     <textarea name="description" id="cdescription" class="form-control" cols="30" rows="2" placeholder="留空则自动抓取"></textarea>
+                  </div>
+                  <div class="mb">
+                     图片链接地址
+                     <textarea name="logoUrl" id="clogoUrl" class="form-control" cols="30" rows="2" placeholder="留空则自动抓取"></textarea>
+                  </div>
+               </div>
+               
+                  <div class="mb">
+                     收藏备注
+                     <textarea name="remark" id="cremark" class="form-control" cols="30" rows="2" placeholder="请输入收藏备注，也可以在这里@好友"></textarea>
+                  </div>
+                  <div class="pull-right dropdown dropdown-list">
+                     <a href="javascript:void(0);" id="atshow" data-toggle="dropdown">
+                          at好友 <i class="fa fa-caret-down"></i>
+                     </a>
+                     <ul class="dropdown-menu" id="atFriend" style="display: none;">
+                        <li id="friends"></li>
+                     </ul>
+                  </div>
+                  <label style="font-weight:normal;margin-bottom:0;">
+                     <input id="type" type="checkbox" name="type" class="mb" value="PRIVATE"> 私密收藏</label>
+               <p class="pt-lg text-center">选择一个收藏夹</p>
+               <select name="favoritesId" id="favoritesSelect" class="mb form-control"><option value="15">架构之路</option><option value="14">开源框架</option><option value="13">helper</option><option value="12">在线学习</option><option value="11">TOMCAT</option><option value="10">redis</option><option value="9">Jquery插件</option><option value="8">Spring Boot</option><option value="7">LINUX</option><option value="6">MAVEN私服</option><option value="1">后端技术</option></select>
+               <p class="text-center">或者</p>
+               <input type="text" id="newFavorites" name="newFavorites" class="mb form-control" placeholder="新建分类收藏夹">
+               <button id="ccollect" class="mt-lg btn btn-primary btn-block">提交</button>
+               <input type="hidden" name="id" id="ccollectId" value="">
+               <input type="hidden" id="userCheck" value="">
+               <input type="hidden" name="url" id="curl" value="">
+               </form>
+               <p></p>
+               <div id="errorMsg" class="alert alert-danger text-center" style="display:none;"></div>
+		         <div class="text-right mt-sm" id="model1">
+		            <a id="changeModel1" href="javascript:void(0);" style="color:#666;text-decoration:none;"> <i class="fa fa-refresh"></i>
+		               	切换成专家模式
+		            </a>
+		         </div>
+		         <div class="text-right mt-sm" id="model2" style="display:none;">
+		            <a id="changeModel2" href="javascript:void(0);" style="color:#666;text-decoration:none;"> <i class="fa fa-refresh"></i>
+		               	切换成简单模式
+		            </a>
+		         </div>
+            </div>
+         </div>
+      </div>
+   </div>
+		 </div>
+	   </div>
+   <div id="modal-remove" class="modal fade">
+      <div class="modal-dialog">
+         <div class="modal-content">
+            <div class="modal-header">
+               <button type="button" data-dismiss="modal" class="close">
+                  <span>×</span>
+               </button>
+               <h4 class="modal-title">删除收藏</h4>
+            </div>
+            <div class="modal-body">
+               <p>该收藏将被永久删除，且无法找回，是否继续？</p>
+            </div>
+            <div class="modal-footer">
+               <button id="delCollect" type="button" class="btn btn-primary" onclick="delCollect()">确定</button>
+               <button type="button" data-dismiss="modal" class="btn btn-danger">取消</button>
+            </div>
+         </div>
+      </div>
+   </div>
+   
+   <div id="modal-changeFavName" class="modal fade">
+      <div class="modal-dialog">
+         <div class="modal-content">
+            <div class="modal-header">
+               <button type="button" data-dismiss="modal" class="close">
+                  <span>×</span>
+               </button>
+               <h4 class="modal-title">修改收藏夹名</h4>
+            </div>
+            <form id="updateFavoritesForm" data-parsley-validate="true" onsubmit="return false" novalidate="">
+            <div class="modal-body">
+            	<div id="updateErrorMsg" class="alert alert-danger text-center" style="display:none;"></div>
+               <div class="form-group has-feedback">
+                  <input type="text" name="favoritesName" placeholder="新收藏夹名" class="form-control" data-parsley-error-message="请输入新收藏夹名" required="required" data-parsley-id="4">
+                  <span class="fa fa-folder form-control-feedback text-muted"></span>
+               </div>
+            </div>
+            <div class="modal-footer">
+               <button id="updateFavoritesBtn" onclick="updateFavorites()" class="btn btn-block btn-primary mt-lg">确定</button>
+            </div>
+            <input type="hidden" name="favoritesId" id="favoritesId" value="">
+            </form>
+         </div>
+      </div>
+   </div>
+   <div id="modal-removeFav" class="modal fade">
+      <div class="modal-dialog">
+         <div class="modal-content">
+            <div class="modal-header">
+               <button type="button" data-dismiss="modal" class="close">
+                  <span>×</span>
+               </button>
+               <h4 class="modal-title">删除收藏夹名</h4>
+            </div>
+            <div class="modal-body">
+               <p>删除收藏夹将删除该收藏下所有收藏，且无法找回，是否继续？</p>
+            </div>
+            <div class="modal-footer">
+               <button type="button" data-dismiss="modal" class="btn">取消</button>
+               <button id="delFavoritesBtn" onclick="delFavorites()" type="button" class="btn btn-danger">删除收藏夹</button>
+            </div>
+         </div>
+      </div>
+   </div>
+   <div id="modal-defaultFav" class="modal fade">
+      <div class="modal-dialog">
+         <div class="modal-content">
+            <div class="modal-header">
+               <button type="button" data-dismiss="modal" class="close">
+                  <span>×</span>
+               </button>
+               <h4 class="modal-title">选择默认收藏夹</h4>
+            </div>
+            <div class="modal-body">
+               <div class="form-group">
+                  <select name="layoutFavoritesName" id="layoutFavoritesName" class="form-control"><option value="15">架构之路</option><option value="14">开源框架</option><option value="13">helper</option><option value="12">在线学习</option><option value="11">TOMCAT</option><option value="10">redis</option><option value="9">Jquery插件</option><option value="8">Spring Boot</option><option value="7">LINUX</option><option value="6">MAVEN私服</option><option value="1">后端技术</option></select>
+               </div>
+            </div>
+            <div class="modal-footer">
+               <button type="button" id="updateFavoritestBtn" onclick="changeConfig(&#39;defaultFavorites&#39;)" class="btn btn-primary">确定</button>
+               <button type="button" data-dismiss="modal" class="btn btn-warning">取消</button>
+            </div>
+         </div>
+      </div>
+   </div>
+   <div id="modal-ChangePass" class="modal fade">
+      <div class="modal-dialog">
+         <div class="modal-content">
+            <div class="modal-header">
+               <button type="button" data-dismiss="modal" class="close">
+                  <span>×</span>
+               </button>
+               <h4 class="modal-title">修改密码</h4>
+            </div>
+            <form id="updatePwdForm" data-parsley-validate="true" onsubmit="return false" novalidate="">
+	            <div class="modal-body">
+	               <div class="alert alert-danger text-center" id="passwordError" style="display: none;">密码输入错误</div>
+	               <div class="form-group has-feedback">
+	                  <input id="oldPassword" name="oldPassword" type="password" placeholder="旧密码" class="form-control" v-model="password" required="required" data-parsley-required-message="请输入旧密码" data-parsley-id="8">
+	                  <span class="fa fa-lock form-control-feedback text-muted"></span>
+	               </div>
+	               <div class="form-group has-feedback">
+	                  <input id="newPassword" name="newPassword" type="password" placeholder="新密码" class="form-control" v-model="password" required="required" data-parsley-required-message="请输入新密码" pattern="/^(?![0-9]+$)(?![a-zA-Z]+$)(?![^0-9a-zA-Z]+$)\S{6,20}$/" data-parsley-pattern-message="请输入6-20位字母数字组合" data-parsley-id="10">
+	                  <span class="fa fa-lock form-control-feedback text-muted"></span>
+	               </div>
+	            </div>
+	            <div class="modal-footer">
+	               <button type="submit" id="updatePwdBtn" class="btn btn-block btn-primary mt-lg" onclick="updatePwd();">确定</button>
+	            </div>
+            </form>
+         </div>
+      </div>
+   </div>
+   <div id="modal-changeDescription" class="modal fade">
+      <div class="modal-dialog">
+         <div class="modal-content">
+            <div class="modal-header">
+               <button type="button" data-dismiss="modal" class="close">
+                  <span>×</span>
+               </button>
+               <h4 class="modal-title">修改个人简介</h4>
+            </div>
+            <form id="updateIntroductionForm" data-parsley-validate="true" onsubmit="return false" novalidate="">
+	            <div class="modal-body">
+	               <div class="form-group">
+	                  <textarea name="introduction" id="introduction" class="form-control" cols="30" rows="2" required="required" data-parsley-error-message="请输入个人简介" data-parsley-id="14"></textarea>
+	               </div>
+	            </div>
+	            <div class="modal-footer">
+	               <button type="submit" id="updateIntroductionBtn" class="btn btn-block btn-primary mt-lg" onclick="updateIntroduction();">确定</button>
+	               <!--  <button type="button" class="btn btn-primary">确定</button>
+	               <button type="button" data-dismiss="modal" class="btn btn-warning">取消</button>  -->
+	            </div>
+            </form>
+         </div>
+      </div>
+   </div>
+   <div id="modal-ChangeNickname" class="modal fade">
+      <div class="modal-dialog">
+         <div class="modal-content">
+            <div class="modal-header">
+               <button type="button" data-dismiss="modal" class="close">
+                  <span>×</span>
+               </button>
+               <h4 class="modal-title">修改昵称</h4>
+            </div>
+            <form id="updateNicknameForm" data-parsley-validate="true" onsubmit="return false" novalidate="">
+	            <div class="modal-body">
+	               <div class="alert alert-danger text-center" id="nicknameError" style="display: none;"></div>
+	               <div class="form-group has-feedback">
+	                  <input id="newNickname" name="newNickname" type="text" placeholder="新昵称" class="form-control" required="required" data-parsley-error-message="请输入新昵称" data-parsley-id="18">
+	                  <span class="fa fa-user form-control-feedback text-muted"></span>
+	               </div>
+	            </div>
+	            <div class="modal-footer">
+	               <button type="submit" id="updateNicknameBtn" class="btn btn-block btn-primary mt-lg" onclick="updateNickname();">确定</button>
+	            </div>
+	        </form>
+         </div>
+      </div>
+   </div>
+   <input type="hidden" id="layoutConfigId" name="layoutConfigId" value="1">
+  </div>
+    <script src="./index/home/jquery.min.js"></script>
+    <script src="./index/home/jquery.form.js"></script>
+	<script src="./index/home/bootstrap.min.js"></script>
+	<script src="./index/home/modernizr.custom.js"></script>
+	<script src="./index/home/jquery.storageapi.js"></script>
+	<script src="./index/home/app.js"></script>
+	<script src="./index/home/jquery-2.1.3.js"></script>
+	
+	<script src="./index/home/collect.js"></script>
+	<script src="./index/home/comm.js"></script>
+	<script src="./index/home/parsley.min.js"></script>
+	<script src="./index/home/toastr.min.js"></script>  	
+	
+<script type="text/javascript">
+	
+$(function(){
+		var page = 1;
+		var standardStr = "standard";
+		if("standard" == standardStr){
+			$("#standard").show();
+			$("#simple").hide();
+			$("#showModel").val("standard");
+		}else{
+			$("#standard").hide();
+			$("#simple").show();
+			$("#showModel").val("simple");
+		}
+		$("#standardBtn").click(function(){
+			$("#standard").hide();
+			$("#simple").show();
+			$("#showModel").val("simple");
+			standardStr = "simple";
+			page = 1;
+		});
+		$("#simpleBtn").click(function(){
+			$("#standard").show();
+			$("#simple").hide();
+			$("#showModel").val("standard");
+			standardStr = "standard";
+			page = 1;
+		});
+});
+	
+	</script>
+</body></html>
